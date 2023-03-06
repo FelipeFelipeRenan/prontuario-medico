@@ -18,20 +18,30 @@ O tema para o projeto foi proposto pela Dra. Lailma, para que ela tenha um melho
 
 ## Descrição breve das funcionalidades
 Identificação do Paciente: Dados básicos como: nome, data de nascimento, sexo, endereço, entre outros.
+
 Laudo de Exames: Caso tenha feito exames, é essencial adicionar os resultados no prontuário.
+
 Prescrições Médicas: Ao receitar um medicamento para o paciente, é necessário deixar registrado tudo que foi prescrito.
+
 Anamnese: É como uma entrevista para identificar os sintomas e queixas do paciente, bem como histórico familiar, vícios, entre outras características. É essencial para realzar um diagnóstico assertivo.
+
 Evolução do Quadro Clínico: Todas as melhoras e pioras do paciente devem ser anotadas no prontuário. Em casos de internação, essa prática deve acontecer frequentemente.
+
 Dados sobre transferências, altas e óbitos: Ligação com a evolução clínica.
+
 Plano Terapêutico: Trecho do prontuário médico no qual aparecem as hipóteses diagnósticas formuladas após anamnese e exame clínico, bem como o tratamento adotado.
+
 Histórico de Documentos: Histórico de consultas, solicitação de exames, resultados, termos de consentimento, tudo que o paciente já realizou deve estar no prontuário.
 
 
 ## Divisão de tarefas
-Cicero Wesley:
-Felipe Renan:
-Lilia Suyane:
-Maria Adriana:
+* Cicero Wesley:
+
+* Felipe Renan:
+
+* Lilia Suyane:
+
+* Maria Adriana:
 
 
 ## Cronograma de atividades
