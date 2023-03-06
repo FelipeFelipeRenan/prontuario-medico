@@ -35,28 +35,31 @@ Histórico de Documentos: Histórico de consultas, solicitação de exames, resu
 
 
 ## Divisão de tarefas
-* Cicero Wesley:
 
-* Felipe Renan:
+* Cicero Wesley: Cadastro de paciente.
 
-* Lilia Suyane:
+* Felipe Renan: Login e autenticação.
 
-* Maria Adriana:
+* Lilia Suyane: Consulta ao prontuário.
+
+* Maria Adriana: Design e estilo.
 
 
 ## Cronograma de atividades
-A definir
 
-
-Exemplo   | Valor do exemplo
---------- | ------
-Exemplo 1 | R$ 10
-Exemplo 2 | R$ 8
-Exemplo 3 | R$ 7
-Exemplo 4 | R$ 8
-
+Prazo   | Responsável | Atividade 
+--------- | --------- |-----------
+20/03/2023 - 31/03/2023| Felipe  | Login e autenticação
+10/04/2023 - 22/04/2023| Wesley  | Cadastro de paciente
+24/04/2023 - 06/05/2023| Lilia   | Consulta ao prontuário
+08/05/2023 - 19/05/2023| Adriana | Design e estilo.
+22/05/2023 - 26/05/2023| Todos   | Ajustes Finais.
+29/05/2023 - 02/06/2023| Todos   | Template.
+05/06/2023 - 09/06/2023| Todos   | Slides.
+12/06/2023 - 14/06/2023| Todos   | Apresentação.
 
 ## Link do google docs
 https://docs.google.com/document/d/16mhPSLwIpoHrXODtga604IXh-YJF94ukyhpdQM0MeWY/edit?usp=sharing
+
 
 
