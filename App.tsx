@@ -5,34 +5,37 @@
  * @format
  */
 
-import React, { useState } from 'react';
-import {Alert, Button, Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import {Button, Text, TextInput, View} from 'react-native';
 
 function App(): JSX.Element {
-  const [username, useUsername] = useState('');
-  const [password, usePassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [status, setStatus] = useState('');
   return (
     <View>
       <Text>Usuário</Text>
-      <TextInput placeholder="Insira o seu usuário" />
+      <TextInput
+        placeholder="Insira o seu usuário"
+        onChangeText={username => setUsername(username)}
+      />
       <Text>Senha</Text>
-      <TextInput placeholder="Insira a sua senha" secureTextEntry={true} />
+      <TextInput
+        placeholder="Insira a sua senha"
+        secureTextEntry={true}
+        onChangeText={password => setPassword(password)}
+      />
       <Button
         title="Autenticar"
         onPress={() => {
-          if (username === '') {
-            Alert.alert('Ei cara, insira o nome do usuario');
-          }
-          if (password === '') {
-            Alert.alert('Ei cara, insira a senha');
-          }
-          if (username === '' && password === '') {
-            Alert.alert('Insere as coisas ai, cara');
+          if (username === 'lovelove' && password === 'felipe') {
+            setStatus('Boa, campeao');
           } else {
-            Alert.alert('Entrou pai');
+            setStatus('Deu errado ein');
           }
         }}
       />
+      <Text>{status}</Text>
     </View>
   );
 }
