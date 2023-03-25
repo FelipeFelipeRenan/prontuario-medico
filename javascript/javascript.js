@@ -46,40 +46,53 @@ let num = Number(str); // é convertido no número 123
 
 console.log(typeof num);
 
-// 4 - operadores de atribuição
+// 4 - operadores de aritméticos
+
+// 5 - operadores condicionais
+// módulo %
+console.log(12 % 5);
+
+// incremento (++)
+// prefixado
+let a = 3;
+const b = ++a;
+
+console.log(`a:${a}, b:${b}`);
+// Expected output: "a:4, b:4"
+
+// pósfixado
+let u = 3;
+const k = u++;
+
+console.log(`u:${u}, k:${k}`);
+// Expected output: "u:4, k:3"
+
+// decremento (--)
+// prefixado
+let p = 3;
+const q = --p;
+
+console.log(`p:${p}, b:${q}`);
+// Expected output: "p:2, q:2"
+
+// pósfixado
+let f = 3;
+const c = f--;
+
+console.log(`f:${f}, c:${c}`);
+// Expected output: "f:2, c:3"
+
+// negação -
 
 
-// operadores de comparação
-// igual ==
-var var1 = 3;
-console.log(3 == var1);
-console.log("3" == var1);
-console.log(3 == '3');
-
-// diferente !=
-const var2 = 2;
-console.log(var1 != 4);
-console.log(var2 != "3");
-
-// estritamente igual ===
-console.log(3 === var1);
-
-// estritamente diferente
-console.log(var1 !== "3");
-console.log(3 !== '3');
 
 
-// 5 - operadores aritméticos
 
+// 6 - estruturas condicionais
 
-// 6 - operadores condicionais
+// 7 - estruturas de repetição
 
+// 8 - funções
 
-// 7 - estruturas condicionais
-
-// 8 - estruturas de repetição
-
-// 9 - funções
-
-// 10 - arrays
+// 9 - arrays
 
