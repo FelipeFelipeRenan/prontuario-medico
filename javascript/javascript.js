@@ -225,3 +225,39 @@ console.log(soma(10, 20));
 
 // 9 - arrays
 console.log('Arrays');
+console.log('');
+//Declarando um array
+let fruits = ["Apple", "Orange", "Pear"];
+
+console.log('Removendo "Pear" (pop remove o ultimo elemento do array)');
+console.log( fruits.pop() );
+console.log(fruits);
+console.log('');
+
+console.log('Adicionando "Banana" (push add o elemento ao final do array)');
+fruits.push("Banana");
+console.log(fruits);
+console.log('');
+
+console.log('Removendo "Apple" (shift remove o primeiro elemento do array)');
+console.log( fruits.shift() );
+console.log(fruits);
+console.log('');
+
+console.log('Adicionando "Mango" (unshift add o elemento ao inicio do array)');
+fruits.unshift("Mango");
+console.log(fruits);
+console.log('');
+
+
+let arr = ["t", "e", "s", "t"]
+console.log('slice faz "cortes" no array');
+console.log( arr.slice(1, 3) );
+console.log(arr.slice(-2));
+console.log('');
+
+let ar = ['Bilbo', 'Gandalf', 'Sam', 'Frodo']
+console.log('Juntando elementos do array em uma string usando ;');
+let str = ar.join(';');
+console.log(str);
+console.log('');
