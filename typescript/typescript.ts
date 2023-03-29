@@ -190,13 +190,13 @@ function buildName(name: string, ...restOfName: string[]){
 
 let nome1 = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");  // saída: "Joseph Samuel Lucas MacKinzie" 
 
-// FUNÇÃO FECHA
+// FUNÇÃO FLECHA
 let soma = (x: number, y: number): number => {
     return x + y;
 }
 soma(10, 20); //retorna 30
 
-// FUNÇÃO FECHA SEM NENHUM PARÂMETRO
+// FUNÇÃO FLECHA SEM NENHUM PARÂMETRO
 let printf = () => { console.log("Olá TypeScript")} ;
 printf(); //Saída: Olá TypeScript
 
