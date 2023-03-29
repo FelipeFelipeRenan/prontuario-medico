@@ -5,38 +5,52 @@
  * @format
  */
 
-import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
+import React from 'react';
+import {Button, Text, TextInput, View, Alert} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-function App(): JSX.Element {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [status, setStatus] = useState('');
+function Tela1({navigation, route}): JSX.Element{
   return (
     <View>
       <Text>Usuário</Text>
-      <TextInput
-        placeholder="Insira o seu usuário"
-        onChangeText={username => setUsername(username)}
-      />
+      <TextInput placeholder="Seu nome de usuário" />
       <Text>Senha</Text>
       <TextInput
-        placeholder="Insira a sua senha"
+        placeholder="Sua senha"
         secureTextEntry={true}
-        onChangeText={password => setPassword(password)}
+        //onChangeText={novaSenha => setSenha(novaSenha)}
       />
       <Button
         title="Autenticar"
         onPress={() => {
-          if (username === 'lovelove' && password === 'felipe') {
-            setStatus('Boa, campeao');
-          } else {
-            setStatus('Deu errado ein');
-          }
+          Alert.alert('Apertou!');
         }}
       />
-      <Text>{status}</Text>
     </View>
+  );
+}
+
+function Home({navigation}): JSX.Element{
+  return (
+    <View>
+      <Text>Tela principal</Text>
+      <Button title="Next" onPress={() => navigation.navigate('Tela1')} />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App(): JSX.Element {
+  //const [senha, setSenha] = useState('');
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Tela1" component={Tela1} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
