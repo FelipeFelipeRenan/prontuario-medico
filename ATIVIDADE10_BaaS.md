@@ -43,7 +43,19 @@ Um BaaS ou mBaaS ou Backend as a Service é uma plataforma que automatiza o dese
 
 ## Característica do BaaS da sua equipe 
 
-### Como utilizar
+### Como utilizar:
+
+* Criar uma conta no Firebase (Google)
+* Criar um projeto Firebase
+* Habilitar a autenticação por email e senha
+* Criar o aplicativo na plataforma alvo (Android ou iOS) no Firebase
+* Criar e configurar um novo aplicativo React Native
+* Instalar o FirebaseSDK ao projeto
+* Inicializar o aplicativo Firebase
+* Configurar registro e login de usuários
+* Persistir as credenciais de login
+* Escrever e ler dados na Firebase Firestore
+
 
 ### Compatibilidade com react native
 
