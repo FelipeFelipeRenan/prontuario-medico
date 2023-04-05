@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, TextInput, View} from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import DropdownSelect from 'react-native-input-select';
 
 const styles = StyleSheet.create({
@@ -76,6 +76,7 @@ export default function Login({navigation}: any): JSX.Element {
             }
           }}
         />
+        {user === '' && senha === '' && <Text>ERRO</Text>}
       </View>
     </View>
   );
