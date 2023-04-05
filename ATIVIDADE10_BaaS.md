@@ -61,6 +61,14 @@ Um BaaS ou mBaaS ou Backend as a Service é uma plataforma que automatiza o dese
 
 ### Principais recursos
 
+### Qual a sua equipe pretende utilizar, com a justificativa
+
+Como plataforma utilizada para o backend da aplicação desenvolvida pela equipe, foi escolhida a Strapi, um headless CMS de código aberto que utiliza uma API para conectar um Frontend com o Backend Strapi.
+
+#### Pontos positivos:
+* È uma plataforma user-friendly e gratúita
+* É de fácil apŕendizado
+* É compatível de fácil integração com varias tecnologias, como Flutter, Kotlin, React, React-Native
 
 
 ## Referência
