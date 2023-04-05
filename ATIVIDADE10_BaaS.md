@@ -58,8 +58,49 @@ Um BaaS ou mBaaS ou Backend as a Service é uma plataforma que automatiza o dese
 
 
 ### Compatibilidade com react native
+Compatibilidade com react native:
+O Firebase oferece SDKs multiplataforma que auxiliam a criar e entregar apps: 
+* Web
+* Android
+* IOS+
+* C++
+* Unity
+ 
+O React Native é uma framework de criação de aplicativos móveis multiplataforma, a mesma suporta as seguintes plataformas:
+* IOS+
+* Android
+* Web
+* Windows
+* MacOS
+* Linux
+
 
 ### Principais recursos
+Seus principais recursos podem ser categorizados em Build, Release & Monitor e Engage:
+
+Build:
+* Bancos de dados (Firestore + RTDB)
+* Machine learning
+* Cloud Functions
+* Autenticação
+* Cloud Messaging
+* Hospedagem
+* Armazenamento
+
+Release & Monitor:
+* Crashlytics
+* Analytics
+* Monitoramento de Desempenho
+* Laboratório de Teste
+* Distribuições de aplicativos
+
+Engage:
+* Configuração Remota
+* Previsões
+* Teste A / B
+* Links dinâmicos
+* Mensagens no aplicativo
+
 
 ### Qual a sua equipe pretende utilizar, com a justificativa
 
@@ -77,3 +118,7 @@ https://blog.back4app.com/backend-as-a-service-baas/
 https://www.alura.com.br/artigos/entendendo-firebase-principais-funcionalidades
 
 https://blog.geekhunter.com.br/firebase-o-que-e-e-quando-usar-no-desenvolvimento-mobile/#Desvantagens_do_Firebase
+
+https://blog.back4app.com/pt/o-que-e-o-firebase/#Recursos_do_Firebase
+
+https://firebase.google.com/docs/libraries?hl=pt-br
