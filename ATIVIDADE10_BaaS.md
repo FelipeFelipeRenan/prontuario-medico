@@ -16,8 +16,8 @@
 
 #### - Característica do BaaS Google Firebase 
 
-##Como utilizar
+## - Como utilizar
 
-##Compatibilidade com react native
+## - Compatibilidade com react native
 
-##Principais recursos
+## - Principais recursos
