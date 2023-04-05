@@ -18,6 +18,8 @@
 
 ## Como utilizar
 
+
 ## Compatibilidade com react native
+
 
 ## Principais recursos
