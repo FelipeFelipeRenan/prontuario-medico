@@ -13,7 +13,11 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Paciente" component={Paciente} />
         <Stack.Screen name="Medico" component={Medico} />
