@@ -9,17 +9,17 @@
 #### - Característica do BaaS da sua equipe (como utilizar, compatibilidade com react native, principais recursos)
 #### - Qual a sua equipe pretende utilizar, com a justificativa
 
-## O que é um Baas
+## O que é um BaaS
 
 Um BaaS ou mBaaS ou Backend as a Service é uma plataforma que automatiza o desenvolvimento de back-end e cuida da infraestrutura de nuvem. Usando um BaaS, você terceirizará as responsabilidades de execução e manutenção de servidores para terceiros e se concentrará no front-end ou no desenvolvimento do lado do cliente.
 
-## Vantagens do Baas 
+## Vantagens do BaaS 
 
 * Velocidade de desenvolvimento – É super rápido.
-* Preço de desenvolvimento – É muito barato.
+* Preço de desenvolvimento – Pode ser mais econômico, quando não se utiliza de todos os recursos de infraestrutura oferecidos pela plataforma, dependendo também da demanda que o projeto vai exigir.
 * É sem servidor e você não precisa gerenciar a infraestrutura.
 
-## Desvantagens do Baas
+## Desvantagens do BaaS
 
 * Menos flexibilidade em comparação com a codificação personalizada.
 * Um nível mais baixo de personalização em comparação com um back-end personalizado.
@@ -107,7 +107,7 @@ Engage:
 Como plataforma utilizada para o backend da aplicação desenvolvida pela equipe, foi escolhida a Strapi, um headless CMS de código aberto que utiliza uma API para conectar um Frontend com o Backend Strapi.
 
 #### Pontos positivos:
-* È uma plataforma user-friendly e gratúita
+* É uma plataforma user-friendly e gratuita
 * É de fácil apŕendizado
 * É compatível de fácil integração com varias tecnologias, como Flutter, Kotlin, React, React-Native
 
