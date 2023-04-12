@@ -47,7 +47,7 @@ const strapi = new Strapi({
 * ### Tipos de métodos
 Todos os métodos contentTypes são construídos em torno das operações Strapi CRUD padrão.
 
-* `find(contentType, params)` 
+* #### `find(contentType, params)` 
 
 Retorna objeto de acordo com seus filtros de consulta.
 
@@ -70,7 +70,7 @@ await strapi.find('restaurants', {
 })
 ```
 
-* `findOne(contentType, id, params)`
+* #### `findOne(contentType, id, params)`
 
 Retorna um objeto específico por id, como também, adicionar filtros de consulta.
 
@@ -83,7 +83,8 @@ await strapi.findOne('restaurants', 1, {
 })
 ```
 
-* `create(contentType, data, params)`
+* #### `create(contentType, data, params)`
+
 Cria uma nova inserção de dados e retorne seu valor. Você pode adicionar filtros de consulta para selecionar o retorno do objeto.
 
 ```js
@@ -94,7 +95,8 @@ await strapi.create('restaurants', 1, {
   populate: ['menu'],
 })
 ```
-* `update(contentType, id, data, params)`    
+* #### `update(contentType, id, data, params)`   
+
 Atualize dados de um objeto pelo seu id e retorne a entrada atualizada.
 
 ```js
@@ -106,7 +108,8 @@ await strapi.update('restaurants', 1, {
 })
 ```
 
-* `delete(contentType, id, params)` 
+* #### `delete(contentType, id, params)` 
+
 Exclue um dado pelo seu id e retorne a entrada excluída.
 
 ```js
@@ -118,9 +121,116 @@ await strapi.delete('restaurants', 1, {
 })
 ```
 
+* ### Autenticação
 
+* #### `register(data)`
 
-```js
+Registre um novo usuário e defina o token.
+
+```jsconst { user, jwt } = await strapi.register({
+  email: "",
+  username: "",
+  password: "",
+});
 ```
 
+* #### `login(data)`
 
+Autentica um usuário e define o token.
+
+```js
+const { user, jwt } = await strapi.login({ identifier: "", password: "" });```
+
+* #### `forgotPassword(data)`
+
+Envie um e-mail para um usuário para redefinir sua senha.
+
+```js
+await strapi.forgotPassword({ email: "" });
+```
+
+* #### `resetPassword(data)`
+
+Redefinir a senha do usuário e definir o token
+
+```js
+const { user, jwt } = await strapi.resetPassword({
+  code: "",
+  password: "",
+  passwordConfirmation: "",
+});
+```
+
+* #### `sendEmailConfirmation(data)`
+
+Envie um e-mail para um usuário para confirmar sua conta.
+
+```js
+await strapi.sendEmailConfirmation({ email: "" });
+```
+* #### `getProviderAuthenticationUrl(provider)`
+
+Obtenha o URL correto da página de autenticação do provedor para autenticar com ele.
+
+```js
+window.location = strapi.getAuthenticationProvider("provider");
+```
+
+* #### `authenticateProvider(provider, access_token)`
+
+Uma vez autorizado, o provedor redirecionará o usuário para seu aplicativo com um token de acesso na URL . O access_tokenparâmetro não é necessário se você o tiver em seu redirecionamento de URL, mas pode fornecer um.
+
+```js
+await strapi.authenticateProvider("provider");
+// OR
+await strapi.authenticateProvider("provider", "myAccessToken");
+```
+* #### `logout()`
+
+Ele desconectará o usuário removendo o token de autenticação do armazenamento escolhido e cabeçalho.
+
+```js
+strapi.logout();
+```
+
+* #### `setUser(user)`
+
+Definir dados locais do usuário logado
+
+```js
+strapi.setUser(user);
+```
+
+* #### `fetchUser()`
+
+Use este método para buscar o usuário atual.
+
+```js
+await strapi.fetchUser();
+```
+
+* #### `getToken()`
+
+Recupere seu token JWT do armazenamento escolhido.
+
+```js
+strapi.getToken();
+```
+
+* #### `setToken()`
+
+Defina seu token JWT no armazenamento escolhido.
+
+```js
+strapi.setToken(token);
+```
+
+* #### `removeToken()`
+
+Remova seu token JWT do armazenamento escolhido.
+
+```js
+strapi.removeToken();
+```
+## Compatibilidade com react native
+O SDK, permite acionar sua API Strapi em seu projeto Javascript / Typescript.
