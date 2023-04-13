@@ -6,9 +6,13 @@
 * Instalação do SDK no projeto
 * Como utilizar o SDK para realizar as principais operações no BaaS, com React Native
 
+## COMPATIBILIDADE COM REACT NATIVE
+
+O SDK, permite acionar sua API Strapi em seu projeto Javascript / Typescript.
+
 ## INSTALAÇÃO
 
-Para iniciar a instalação, adicione `strapi-sdk-js`na dependência no projeto: 
+Para iniciar a instalação, adicione `strapi-sdk-js` na dependência no projeto: 
 
 ```js
 npm install --save strapi-sdk-js
@@ -232,5 +236,8 @@ Remova seu token JWT do armazenamento escolhido.
 ```js
 strapi.removeToken();
 ```
-## Compatibilidade com react native
-O SDK, permite acionar sua API Strapi em seu projeto Javascript / Typescript.
+
+## REFERÊNCIAS
+
+https://strapi-sdk-js.netlify.app/
+
