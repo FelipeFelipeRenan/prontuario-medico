@@ -1,4 +1,3 @@
-
 FROM node:18-bullseye
 # Installing libvips-dev for sharp Compatibility
 RUN apt-get update && apt-get install -y build-essential gcc autoconf automake zlib1g-dev libpng-dev nasm bash libvips-dev
