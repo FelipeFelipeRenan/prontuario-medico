@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pacientes",
+  "info": {
+    "singularName": "paciente",
+    "pluralName": "pacientes",
+    "displayName": "Paciente",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Telefone": {
+      "type": "string"
+    },
+    "DataNascimento": {
+      "type": "date"
+    },
+    "Endereco": {
+      "type": "text"
+    },
+    "Sexo": {
+      "type": "boolean"
+    },
+    "Senha": {
+      "type": "password"
+    }
+  }
+}

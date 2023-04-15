@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultas",
+  "info": {
+    "singularName": "consulta",
+    "pluralName": "consultas",
+    "displayName": "Consulta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "IdPaciente": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::paciente.paciente"
+    },
+    "Anamnese": {
+      "type": "text"
+    },
+    "IdMedico": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medico.medico"
+    },
+    "Comentario": {
+      "type": "text"
+    }
+  }
+}

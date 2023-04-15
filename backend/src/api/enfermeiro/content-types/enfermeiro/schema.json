@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enfermeiros",
+  "info": {
+    "singularName": "enfermeiro",
+    "pluralName": "enfermeiros",
+    "displayName": "Enfermeiro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "Telefone": {
+      "type": "string"
+    },
+    "Sexo": {
+      "type": "boolean"
+    },
+    "COREN": {
+      "type": "string"
+    },
+    "Especialidade": {
+      "type": "string"
+    },
+    "Senha": {
+      "type": "password",
+      "required": true
+    }
+  }
+}
