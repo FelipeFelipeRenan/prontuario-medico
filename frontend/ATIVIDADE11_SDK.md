@@ -131,7 +131,8 @@ await strapi.delete('restaurants', 1, {
 
 Registre um novo usuário e defina o token.
 
-```jsconst { user, jwt } = await strapi.register({
+```js
+const { user, jwt } = await strapi.register({
   email: "",
   username: "",
   password: "",
@@ -143,7 +144,8 @@ Registre um novo usuário e defina o token.
 Autentica um usuário e define o token.
 
 ```js
-const { user, jwt } = await strapi.login({ identifier: "", password: "" });```
+const { user, jwt } = await strapi.login({ identifier: "", password: "" });
+```
 
 * #### `forgotPassword(data)`
 
