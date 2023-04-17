@@ -16,11 +16,19 @@ assíncronas.
 
 Por exemplo:
 
-Fazendo solicitações HTTP Acessar a câmera ou o microfone de um usuário Pedindo a um usuário para selecionar
-arquivos
+* Fazendo solicitações HTTP 
+* Acessar a câmera ou o microfone de um usuário 
+* Pedindo a um usuário para selecionar arquivos
 
-Portanto, mesmo que você não precise implementar suas próprias funções assíncronas com muita frequência, é muito
-provável que você precise usá-las corretamente.
+Portanto, mesmo que você não precise implementar suas próprias funções assíncronas com muita frequência, é
+muito provável que você precise usá-las corretamente. Já na programação síncrona cada linha do programa é
+executado de cada vez na ordem em que foi escrito. Dessa forma, o programa espera que a execução da linha seja
+terminada para seguir para a próxima. Isso ocorre porque cada linha depende do trabalho feito nas linhas
+anteriores.
+
+## PROMISSES
+
+
 
 ## COMO USAR EM JAVASCRIPT
 
@@ -72,9 +80,15 @@ getUser(1).then(exibeDadosUser).catch(reject)
 
 ## QUAL A IMPORTÂNCIA DO ASSUNTO PARA O DESENVOLVIMENTO DO SEU PROJETO EM REACT NATIVE
 
+O assincronismo é de extrema importância para nosso projeto, pois requisições a API serão feitas e podem levar 
+muito tempo. Dessa forma, se as funções assíncronas não forem usadas o aplicativo ficará paralizado 
+impossibilitando o usuário de utilizar a aplicação. Entretanto, com as funções assíncronas as requisições ficam 
+executando em segundo plano permitindo a utilização do aplicativo. 
 
 ## REFERÊNCIAS
 
 https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar?gclid=CjwKCAjw8-OhBhB5EiwADyoY1Wwu8DSuHbwpE6Kn1yVCXkJwxl1034uA5LHKvoHl4ToFZt4EQ1EtbhoCCMwQAvD_BwE
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Asynchronous/Introducing
