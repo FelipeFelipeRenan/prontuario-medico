@@ -15,6 +15,11 @@
 ## Descrição breve do tema
 O tema para o projeto foi proposto pela Dra. Lailma, para que ela tenha um melhor controle dos dados dos seus pacientes na palma da mão. Além de que, eles também possam consultar seus próprios prontuários.
 
+## Usuários da Aplicação
+
+* Médico (a)
+* Enfermeira (o)
+* Paciente
 
 ## Descrição breve das funcionalidades
 Identificação do Paciente: Dados básicos como: nome, data de nascimento, sexo, endereço, entre outros.
@@ -23,7 +28,7 @@ Laudo de Exames: Caso tenha feito exames, é essencial adicionar os resultados n
 
 Prescrições Médicas: Ao receitar um medicamento para o paciente, é necessário deixar registrado tudo que foi prescrito.
 
-Anamnese: É como uma entrevista para identificar os sintomas e queixas do paciente, bem como histórico familiar, vícios, entre outras características. É essencial para realzar um diagnóstico assertivo.
+Anamnese: É como uma entrevista para identificar os sintomas e queixas do paciente, bem como histórico familiar, vícios, entre outras características. É essencial para realizar um diagnóstico assertivo.
 
 Evolução do Quadro Clínico: Todas as melhoras e pioras do paciente devem ser anotadas no prontuário. Em casos de internação, essa prática deve acontecer frequentemente.
 
