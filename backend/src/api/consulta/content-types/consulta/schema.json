@@ -4,7 +4,8 @@
   "info": {
     "singularName": "consulta",
     "pluralName": "consultas",
-    "displayName": "Consulta"
+    "displayName": "Consulta",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,11 @@
     },
     "Comentario": {
       "type": "text"
+    },
+    "IdEnfermeira": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::enfermeiro.enfermeiro"
     }
   }
 }
