@@ -12,29 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
-      "type": "string"
-    },
-    "Email": {
-      "type": "email",
-      "unique": true,
-      "required": true
-    },
-    "Telefone": {
-      "type": "string"
-    },
-    "Sexo": {
-      "type": "boolean"
+    "idUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     },
     "COREN": {
       "type": "string"
     },
-    "Especialidade": {
+    "specialty": {
       "type": "string"
-    },
-    "Senha": {
-      "type": "password",
-      "required": true
     }
   }
 }

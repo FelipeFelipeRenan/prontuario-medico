@@ -12,26 +12,26 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "IdPaciente": {
+    "idPaciente": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::paciente.paciente"
+      "target": "plugin::users-permissions.user"
     },
-    "Anamnese": {
+    "idEnfermeira": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "idMedico": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "anamnesis": {
       "type": "text"
     },
-    "IdMedico": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::medico.medico"
-    },
-    "Comentario": {
+    "comment": {
       "type": "text"
-    },
-    "IdEnfermeira": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::enfermeiro.enfermeiro"
     }
   }
 }

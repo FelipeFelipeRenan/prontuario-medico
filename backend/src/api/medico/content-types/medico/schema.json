@@ -12,31 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
-      "type": "string"
+    "idUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     },
-    "Email": {
-      "type": "email",
-      "unique": true,
-      "required": true
-    },
-    "Telefone": {
-      "type": "string"
-    },
-    "DataNascimento": {
+    "dateBirth": {
       "type": "date"
-    },
-    "Sexo": {
-      "type": "boolean"
     },
     "CRM": {
       "type": "string"
     },
-    "Especialidade": {
+    "specialty": {
       "type": "string"
-    },
-    "Senha": {
-      "type": "password"
     }
   }
 }

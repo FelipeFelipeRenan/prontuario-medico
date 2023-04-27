@@ -12,28 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
-      "type": "string"
+    "idUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     },
-    "Email": {
-      "type": "email",
-      "required": true,
-      "unique": true
-    },
-    "Telefone": {
-      "type": "string"
-    },
-    "DataNascimento": {
+    "dateBirth": {
       "type": "date"
     },
-    "Endereco": {
+    "address": {
       "type": "text"
-    },
-    "Sexo": {
-      "type": "boolean"
-    },
-    "Senha": {
-      "type": "password"
     }
   }
 }
