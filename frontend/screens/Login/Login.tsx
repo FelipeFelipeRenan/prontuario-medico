@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import DropdownSelect from 'react-native-input-select';
+import strapi from '../../strapi/strapi';
+import axios from 'axios';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,48 +14,44 @@ const styles = StyleSheet.create({
 });
 
 export default function Login({navigation}: any): JSX.Element {
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [user, setUsuario] = useState('');
+
+
+
+  const handleButton = async () => {
+    
+    try {
+      // const {user, jwt} = await strapi.login({identifier : email, password : senha});
+      // console.log(user)
+      // console.log(jwt)
+      const res = axios.post("http://192.168.1.17:1337/api/auth/local", {
+        identifier : email,
+        password : senha,
+      })
+      .then((res) => {
+        console.log(res.data.user)
+        console.log(res.data.token)
+      }).catch(error => console.log(error))
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
+
   return (
     <View>
       <View style={styles.container}>
-        <DropdownSelect
-          label="Tipo de usuario"
-          placeholder="Selecione o seu tipo de usuario"
-          options={[
-            {name: 'Médico', code: 'ME'},
-            {name: 'Enfermeiro', code: 'EN'},
-            {name: 'Paciente', code: 'PA'},
-          ]}
-          optionLabel={'name'}
-          optionValue={'code'}
-          selectedValue={user}
-          onValueChange={(value: React.SetStateAction<string>) =>
-            setUsuario(value)
-          }
-          primaryColor={'green'}
-          // eslint-disable-next-line react-native/no-inline-styles
-          labelStyle={{
-            color: 'teal',
-            fontSize: 15,
-            fontWeight: '500',
-            alignSelf: 'center',
-          }}
-          // eslint-disable-next-line react-native/no-inline-styles
-          dropdownContainerStyle={{
-            borderColor: 'red',
-            alignContent: 'center',
-          }}
-          // eslint-disable-next-line react-native/no-inline-styles
-          modalBackgroundStyle={{backgroundColor: 'rgba(196, 198, 246, 0.5)'}}
-          // eslint-disable-next-line react-native/no-inline-styles
-          checkboxStyle={{backgroundColor: 'red', borderRadius: 5}}
-        />
         <TextInput
-          placeholder="Usuário"
+          placeholder="Email"
+          value={email}
           onChangeText={value => {
-            setUsuario(value);
+            setEmail(value);
           }}
+          inputMode='email'
         />
         <TextInput
           placeholder="Senha"
@@ -66,17 +63,8 @@ export default function Login({navigation}: any): JSX.Element {
         />
         <Button
           title="Entrar"
-          onPress={() => {
-            if (user === 'ME') {
-              navigation.navigate('Medico');
-            } else if (user === 'EN') {
-              navigation.navigate('Enfermeiro');
-            } else if (user === 'PA') {
-              navigation.navigate('Paciente');
-            }
-          }}
+          onPress={() => handleButton()}
         />
-        {user === '' && senha === '' && <Text>ERRO</Text>}
       </View>
     </View>
   );
