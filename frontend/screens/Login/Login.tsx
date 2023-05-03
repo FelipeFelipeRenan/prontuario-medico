@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import strapi from '../../strapi/strapi';
-import axios from 'axios';
+//import axios from 'axios';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,30 +17,18 @@ export default function Login({navigation}: any): JSX.Element {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-
-
   const handleButton = async () => {
-    
     try {
-      // const {user, jwt} = await strapi.login({identifier : email, password : senha});
-      // console.log(user)
-      // console.log(jwt)
-      const res = axios.post("http://192.168.1.17:1337/api/auth/local", {
-        identifier : email,
-        password : senha,
-      })
-      .then((res) => {
-        console.log(res.data.user)
-        console.log(res.data.token)
-      }).catch(error => console.log(error))
-      console.log(res)
+      const {user, jwt} = await strapi.login({
+        identifier: email,
+        password: senha,
+      });
+      console.log(user);
+      console.log(jwt);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-  }
-
-
+  };
 
   return (
     <View>
@@ -51,7 +39,7 @@ export default function Login({navigation}: any): JSX.Element {
           onChangeText={value => {
             setEmail(value);
           }}
-          inputMode='email'
+          inputMode="email"
         />
         <TextInput
           placeholder="Senha"
@@ -61,10 +49,7 @@ export default function Login({navigation}: any): JSX.Element {
             setSenha(value);
           }}
         />
-        <Button
-          title="Entrar"
-          onPress={() => handleButton()}
-        />
+        <Button title="Entrar" onPress={() => handleButton()} />
       </View>
     </View>
   );
