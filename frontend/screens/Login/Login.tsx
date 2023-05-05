@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import strapi from '../../strapi/strapi';
-//import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,12 +19,19 @@ export default function Login({navigation}: any): JSX.Element {
 
   const handleButton = async () => {
     try {
+      // const res = await axios.get('https://www.google.com')
+      // console.log(res)
+
       const {user, jwt} = await strapi.login({
         identifier: email,
         password: senha,
       });
-      console.log(user);
-      console.log(jwt);
+      if(user){
+        // console.log(user.id)
+        await AsyncStorage.setItem("user", JSON.stringify(user));
+        // console.log(await AsyncStorage.getItem("user"))
+        navigation.navigate('Menu');
+      }
     } catch (error) {
       console.log(error);
     }

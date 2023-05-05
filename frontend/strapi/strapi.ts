@@ -1,6 +1,6 @@
 import Strapi from 'strapi-sdk-js';
 
-let localIP: string = '10.0.84.201';
+let localIP: string = '192.168.1.17';
 
 const strapi = new Strapi({
   url: `http://${localIP}:1337`,
@@ -12,8 +12,7 @@ const strapi = new Strapi({
   },
   axiosOptions: {
     headers: {
-      Authorization:
-        'Bearer 1f7d14e786aba9f0ac7b4df1838d53e1134b85f13b5158281bef8bea3bd9225efd1a034a6bed840b869f2bb64ba701728def7df40fb4bc9065173487a47bb0973866cbceb1963c776611e23eacbca1438ead045822cfcd2b9cac229821bb9a0cb07616c7539bc2715d9e5c66fd38cab2e0020472078fc8bcba78daae36eaf0ee',
+      Authorization: 'Bearer 80d98dfdcc9c8c4b7b918e9bd7b56990a771de1ed57837c54739eebfa3a276db010e938665d50092804177e530ed13549ccae6afabe7211a3d004e00e57f55796bbd382998388fe4d433ec2aa3c979b1deff5d8d5c41490538e1e95c8122b05d95e57fc49ba1d47e53c7e990ab75a4abd7f2a48698a89cad7512686ed35a0736',
       'Content-Type': 'application/json',
     },
   },
