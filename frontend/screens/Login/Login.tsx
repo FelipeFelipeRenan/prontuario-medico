@@ -17,10 +17,16 @@ export default function Login({navigation}: any): JSX.Element {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  const [error, setError] = useState('');
+
   const handleButton = async () => {
     try {
       // const res = await axios.get('https://www.google.com')
       // console.log(res)
+      if(email === '' || senha === ''){
+        setError('Email e/ou senha não inseridos');
+        return;
+      }
 
       const {user, jwt} = await strapi.login({
         identifier: email,
@@ -39,6 +45,7 @@ export default function Login({navigation}: any): JSX.Element {
 
   return (
     <View>
+      {error && <Text>{error}</Text>}
       <View style={styles.container}>
         <TextInput
           placeholder="Email"

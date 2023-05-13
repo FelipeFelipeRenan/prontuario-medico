@@ -20,7 +20,21 @@ export default function Menu({navigation}: any): JSX.Element {
     <View>
       <Text>Bem vindo ao menu</Text>
       {user && user.accessLevel===0 &&
-        <Button title='Criar usuário'/>
+        <View>
+          <View>
+            <Button title='Cadastrar médico'/>
+            <Button title='Cadastrar enfermeira(o)'/>
+            <Button title='Cadastrar paciente'/>
+          </View>
+          <View>
+            <Button title='Editar médico'/>
+            <Button title='Editar enfermeira(o)'/>
+            <Button title='Editar paciente'/>
+          </View>
+          <View>
+            <Button title='Ver usuários do sistema'/>
+          </View>
+        </View>
       }
     </View>
   );
