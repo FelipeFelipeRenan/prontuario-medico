@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 import '@testing-library/jest-native/extend-expect';
 import Home from '../screens/Home/Home';
 
