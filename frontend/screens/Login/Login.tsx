@@ -23,7 +23,7 @@ export default function Login({navigation}: any): JSX.Element {
     try {
       // const res = await axios.get('https://www.google.com')
       // console.log(res)
-      if(email === '' || senha === ''){
+      if (email === '' || senha === '') {
         setError('Email e/ou senha não inseridos');
         return;
       }
@@ -32,9 +32,9 @@ export default function Login({navigation}: any): JSX.Element {
         identifier: email,
         password: senha,
       });
-      if(user){
+      if (user) {
         // console.log(user.id)
-        await AsyncStorage.setItem("user", JSON.stringify(user));
+        await AsyncStorage.setItem('user', JSON.stringify(user));
         // console.log(await AsyncStorage.getItem("user"))
         navigation.navigate('Menu');
       }
