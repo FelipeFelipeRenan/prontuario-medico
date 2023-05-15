@@ -17,7 +17,7 @@
 
 6 - Em frontend/strapi/strapi.ts
 
-* Na variável localIP colocar o IP do passo 4;
-* Em Authorization colocar a frente de Bearer o token gerado no passo 2;
+* Na variável localIP colocar o IP do passo 5;
+* Em Authorization colocar a frente de Bearer o token gerado no passo 3;
 
 7-  Fazer o projeto.
