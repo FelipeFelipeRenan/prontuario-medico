@@ -14,25 +14,45 @@ export default function Menu({navigation}: any): JSX.Element {
       }
     }
     getUser();
-  }, [])
+  }, []);
 
   return (
     <View>
       <Text>Bem vindo ao menu</Text>
+      {/* Administrador */}
       {user && user.accessLevel===0 &&
         <View>
           <View>
-            <Button title='Cadastrar médico'/>
-            <Button title='Cadastrar enfermeira(o)'/>
-            <Button title='Cadastrar paciente'/>
+            <Button title='Cadastrar médico' onPress={() => navigation.navigate('CreateMedico')}/>
+            <Button title='Cadastrar enfermeira(o)' onPress={() => navigation.navigate('CreateEnfermeira')}/>
+            <Button title='Cadastrar paciente' onPress={() => navigation.navigate('CreatePaciente')}/>
           </View>
           <View>
-            <Button title='Editar médico'/>
-            <Button title='Editar enfermeira(o)'/>
-            <Button title='Editar paciente'/>
+            <Button title='Editar médico' onPress={() => navigation.navigate('EditMedico')}/>
+            <Button title='Editar enfermeira(o)' onPress={() => navigation.navigate('EditEnfermeira')}/>
+            <Button title='Editar paciente' onPress={() => navigation.navigate('EditPaciente')}/>
           </View>
           <View>
-            <Button title='Ver usuários do sistema'/>
+            <Button title='Ver usuários do sistema' onPress={() => navigation.navigate('ReadPacientes')}/>
+          </View>
+        </View>
+      }
+      {/* Médico e enfermeira*/}
+      {user && user.accessLevel === 1 || user.accessLevel === 2 &&
+        <View>
+          <View>
+            <Button title='Cadastrar consulta' onPress={() => navigation.navigate('CreateConsulta')}/>
+          </View>
+          <View>
+            <Button title='Editar consulta' onPress={() => navigation.navigate('EditConsulta')}/>
+          </View>
+        </View>
+      }
+      {/*Paciente*/}
+      {user && user.accessLevel === 3 &&
+        <View>
+          <View>
+            <Button title='Consultar prontuário' onPress={() => navigation.navigate('ReadProntuario')}/>
           </View>
         </View>
       }
