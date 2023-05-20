@@ -4,7 +4,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import Home from './screens/Home/Home';
 import Login from './screens/Login/Login';
 import Menu from './screens/Menu/Menu';
-import CreateUser from './screens/CreateUser/CreateUser';
+import CreateMedico from './screens/CreateMedico/CreateMedico';
+import CreateEnfermeira from './screens/CreateEnfermeira/CreateEnfermeira';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,8 @@ function App(): JSX.Element {
         />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="CreateUser" component={CreateUser} />
+        <Stack.Screen name="CreateMedico" component={CreateMedico} />
+        {/* <Stack.Screen name="CreateEnfermeira" component={CreateEnfermeira} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

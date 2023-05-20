@@ -9,13 +9,15 @@ export default function Menu({navigation}: any): JSX.Element {
   useEffect(() => {
     const getUser = async () => {
       const res = await AsyncStorage.getItem("user");
+      
+
       if(res){
         setUser(JSON.parse(res))
       }
     }
     getUser();
   }, []);
-
+  
   return (
     <View>
       <Text>Bem vindo ao menu</Text>
@@ -24,27 +26,27 @@ export default function Menu({navigation}: any): JSX.Element {
         <View>
           <View>
             <Button title='Cadastrar médico' onPress={() => navigation.navigate('CreateMedico')}/>
-            <Button title='Cadastrar enfermeira(o)' onPress={() => navigation.navigate('CreateEnfermeira')}/>
-            <Button title='Cadastrar paciente' onPress={() => navigation.navigate('CreatePaciente')}/>
+            <Button title='Cadastrar enfermeira(o)' onPress={() => navigation.navigate('')}/>
+            <Button title='Cadastrar paciente' onPress={() => navigation.navigate('')}/>
           </View>
           <View>
-            <Button title='Editar médico' onPress={() => navigation.navigate('EditMedico')}/>
-            <Button title='Editar enfermeira(o)' onPress={() => navigation.navigate('EditEnfermeira')}/>
-            <Button title='Editar paciente' onPress={() => navigation.navigate('EditPaciente')}/>
+            <Button title='Editar médico' onPress={() => navigation.navigate('')}/>
+            <Button title='Editar enfermeira(o)' onPress={() => navigation.navigate('')}/>
+            <Button title='Editar paciente' onPress={() => navigation.navigate('')}/>
           </View>
           <View>
-            <Button title='Ver usuários do sistema' onPress={() => navigation.navigate('ReadPacientes')}/>
+            <Button title='Ver usuários do sistema' onPress={() => navigation.navigate('')}/>
           </View>
         </View>
       }
       {/* Médico e enfermeira*/}
-      {user && user.accessLevel === 1 || user.accessLevel === 2 &&
+      {user && (user.accessLevel === 1 || user.accessLevel === 2) &&
         <View>
           <View>
-            <Button title='Cadastrar consulta' onPress={() => navigation.navigate('CreateConsulta')}/>
+            <Button title='Cadastrar consulta' onPress={() => navigation.navigate('')}/>
           </View>
           <View>
-            <Button title='Editar consulta' onPress={() => navigation.navigate('EditConsulta')}/>
+            <Button title='Editar consulta' onPress={() => navigation.navigate('')}/>
           </View>
         </View>
       }
