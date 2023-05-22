@@ -26,16 +26,11 @@ export default function Menu({navigation}: any): JSX.Element {
         <View>
           <View>
             <Button title='Cadastrar médico' onPress={() => navigation.navigate('CreateMedico')}/>
-            <Button title='Cadastrar enfermeira(o)' onPress={() => navigation.navigate('')}/>
-            <Button title='Cadastrar paciente' onPress={() => navigation.navigate('')}/>
+            <Button title='Cadastrar enfermeira(o)' onPress={() => navigation.navigate('CreateEnfermeira')}/>
+            <Button title='Cadastrar paciente' onPress={() => navigation.navigate('CreatePaciente')}/>
           </View>
           <View>
-            <Button title='Editar médico' onPress={() => navigation.navigate('')}/>
-            <Button title='Editar enfermeira(o)' onPress={() => navigation.navigate('')}/>
-            <Button title='Editar paciente' onPress={() => navigation.navigate('')}/>
-          </View>
-          <View>
-            <Button title='Ver usuários do sistema' onPress={() => navigation.navigate('')}/>
+            <Button title='Ver usuários do sistema' onPress={() => navigation.navigate('ShowUsers')}/>
           </View>
         </View>
       }

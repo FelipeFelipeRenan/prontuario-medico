@@ -5,7 +5,7 @@
 import 'react-native';
 import React from 'react';
 import App from '../App';
-import Home from '../screens/Home/Home';
+import Home from '../src/screens/Home/Home';
 import '@testing-library/jest-native/extend-expect';
 
 // Note: test renderer must be required after react-native.

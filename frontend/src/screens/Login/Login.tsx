@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import strapi from '../../strapi/strapi';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Login({navigation}: any): JSX.Element {
+export default function Login({ navigation }: any): JSX.Element {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -28,7 +28,7 @@ export default function Login({navigation}: any): JSX.Element {
         return;
       }
 
-      const {user, jwt} = await strapi.login({
+      const { user, jwt } = await strapi.login({
         identifier: email,
         password: senha,
       });

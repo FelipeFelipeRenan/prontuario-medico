@@ -1,7 +1,7 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 import '@testing-library/jest-native/extend-expect';
-import Home from '../screens/Home/Home';
+import Home from '../src/screens/Home/Home';
 
 test('Renderização dos componentes da tela Home', async () => {
   //Renderiza o componente Login

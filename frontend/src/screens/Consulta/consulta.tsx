@@ -1,9 +1,9 @@
-import {useState} from 'react';
-import {Button, Text, View, TextInput, Switch} from 'react-native';
-import strapi from '../../strapi/strapi';
-import axioS from '../../axios/axios';
+import { useState } from 'react';
+import { Button, Text, View, TextInput, Switch } from 'react-native';
+import strapi from '../../utils/strapi/strapi';
+import axioS from '../../utils/axios/axios';
 
-export default function CreateConsulta({navigation}: any): JSX.Element {
+export default function CreateConsulta({ navigation }: any): JSX.Element {
   const [paciente, setPaciente] = useState('');
   const [medico, setMedico] = useState('');
   const [enfermeira, setEnfermeira] = useState('');
@@ -11,7 +11,7 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
   const [amnese, setAmnese] = useState('');
   const [data, setData] = useState('');
   const [comentario, setComentario] = useState('');
-  
+
   /*
     id
     Identificação do paciente (vem de usuário com nível 3)
@@ -25,13 +25,13 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
 
 
   const handleButton = async () => {
-    if(amnese === '' || paciente === '' || medico === ''){
+    if (amnese === '' || paciente === '' || medico === '') {
       console.log('Alguns dados não foram completados');
       return;
     }
 
     // register consulta
-    const res : any = await axioS.post('api/', {
+    const res: any = await axioS.post('api/', {
       paciente,
       clinica,
       medico,
@@ -49,14 +49,14 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
       const medico = 
       const enfermeira = 
       */
-     
+
       //const data = 
 
-       // specific infos
-       const consulta = await strapi.create('consultas', {idUser : response.data.id})
-       if(consulta) {
-         console.log('consulta criada com sucesso');
-       }
+      // specific infos
+      const consulta = await strapi.create('consultas', { idUser: response.data.id })
+      if (consulta) {
+        console.log('consulta criada com sucesso');
+      }
     });
 
   }
@@ -64,20 +64,20 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
   return (
     <View>
       <TextInput
-          placeholder="Paciente"
-          value={paciente}
-          onChangeText={value => {
-            setPaciente(value);
-          }}
+        placeholder="Paciente"
+        value={paciente}
+        onChangeText={value => {
+          setPaciente(value);
+        }}
       />
-      <TextInput
-          placeholder="Clinica"
-          value={clinica}
-          onChangeText={value => {
-            setClinica(value);
-          }}
-          inputMode="clinica"
-      />
+      {/* <TextInput
+        placeholder="Clinica"
+        value={clinica}
+        onChangeText={value => {
+          setClinica(value);
+        }}
+        inputMode="clinica"
+      /> */}
       <TextInput
         placeholder="Medico"
         value={medico}
