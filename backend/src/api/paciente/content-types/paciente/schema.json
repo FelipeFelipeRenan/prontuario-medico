@@ -12,16 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "idUser": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "dateBirth": {
       "type": "date"
     },
     "address": {
       "type": "text"
+    },
+    "idUser": {
+      "type": "integer"
     }
   }
 }

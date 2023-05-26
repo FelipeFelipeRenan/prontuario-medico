@@ -12,16 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "idUser": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "COREN": {
       "type": "string"
     },
     "specialty": {
       "type": "string"
+    },
+    "idUser": {
+      "type": "integer"
     }
   }
 }

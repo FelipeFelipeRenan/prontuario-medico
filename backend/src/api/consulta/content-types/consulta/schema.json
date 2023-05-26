@@ -12,26 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "idPaciente": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
-    "idEnfermeira": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
-    "idMedico": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "anamnesis": {
       "type": "text"
     },
     "comment": {
       "type": "text"
+    },
+    "idPaciente": {
+      "type": "integer"
+    },
+    "idEnfermeira": {
+      "type": "integer"
+    },
+    "idMedico": {
+      "type": "integer"
     }
   }
 }
