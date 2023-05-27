@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from 'react';
 import { Button, Text, View, TextInput, Switch } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
@@ -45,7 +45,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
         if(enfermeiras){
           setEnfermeiros(enfermeiras.data)
           // console.log(enfermeiros)
-          enfermeiros.map(async enfer => {
+          enfermeiros.map(async (enfer: { attributes: { idUser: any; }; id: any; }) => {
             // console.log(enfer.attributes.idUser)
             const res: any = await axioS.put(`/api/users/${enfer.attributes.idUser}`)
             .then((response) => {
@@ -57,7 +57,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
                 phoneNumber: response.data.phoneNumber,
               }
               // console.log(enf)
-              setUsersEnfermeiros((prevUsersEnfermeiros) => [...prevUsersEnfermeiros, enf]) 
+              setUsersEnfermeiros((prevUsersEnfermeiros: any) => [...prevUsersEnfermeiros, enf]) 
             });
           });
         } else {
@@ -81,7 +81,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
         if(medicoS){
           setMedicos(medicoS.data);
           // let medicUsers = [];
-          medicos.forEach(async medic => {
+          medicos.forEach(async (medic: { attributes: { idUser: any; }; id: any; }) => {
             const res: any = await axioS.put(`/api/users/${medic.attributes.idUser}`)
             .then((response) => {
               // console.log(response.data)  
@@ -91,8 +91,8 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
                 username : response.data.username,
                 phoneNumber: response.data.phoneNumber,
               }
-              // console.log(med)
-              setUsersMedicos((prevUsersMedicos) => [...prevUsersMedicos, med])
+              console.log(med)
+              setUsersMedicos((prevUsersMedicos: any) => [...prevUsersMedicos, med])
             });
 
           });
@@ -117,7 +117,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
         if(pacienteS){
           setPacientes(pacienteS.data);
           // let pacientUsers = [];
-          pacientes.forEach(async pacient => {
+          pacientes.forEach(async (pacient: { attributes: { idUser: any; }; id: any; }) => {
             const res: any = await axioS.put(`/api/users/${pacient.attributes.idUser}`)
             .then((response) => {
               const pac = {
@@ -127,7 +127,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
                 phoneNumber: response.data.phoneNumber,
               }
 
-              setUsersPacientes((prevUsersPacientes) => [...prevUsersPacientes, pac])
+              setUsersPacientes((prevUsersPacientes: any) => [...prevUsersPacientes, pac])
             });
           });
         } else {
@@ -142,15 +142,15 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
     getPacientes();
   }, []);
 
-  console.log(usersMedicos)
-  console.log(usersEnfermeiros)
-  console.log(usersPacientes)
+  console.log("Medicos: " + usersMedicos)
+  console.log("Enfermeiros: " + usersEnfermeiros)
+  console.log("Pacientes: " + usersPacientes)
   return (
     <View>
       {user && user.accessLevel === 1 &&
         <View>
           {/* Exibir enfermeiras para seleção */}
-          {usersEnfermeiros && usersEnfermeiros.map((enfer) => (
+          {usersEnfermeiros && usersEnfermeiros.map((enfer: { username: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
             <View>
               <Text>{enfer.username}</Text>
             </View>
@@ -161,7 +161,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
       {user && user.accessLevel === 2 &&
         <View>
           {/* Exibir medicos para seleção */}
-          {usersMedicos && usersMedicos.map((medic) => (
+          {usersMedicos && usersMedicos.map((medic: { username: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
             <View>
               <Text>{medic.username}</Text>
             </View>
@@ -170,7 +170,7 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
       }
 
       {/* Exibir pacientes */}
-      {usersPacientes && usersPacientes.map((pacient) => (
+      {usersPacientes && usersPacientes.map((pacient: { username: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
         <View>
           <Text>{pacient.username}</Text>
         </View>
