@@ -38,7 +38,7 @@ export default function Menu({navigation}: any): JSX.Element {
       {user && (user.accessLevel === 1 || user.accessLevel === 2) &&
         <View>
           <View>
-            <Button title='Cadastrar consulta' onPress={() => navigation.navigate('')}/>
+            <Button title='Cadastrar consulta' onPress={() => navigation.navigate('CreateConsulta')}/>
           </View>
           <View>
             <Button title='Editar consulta' onPress={() => navigation.navigate('')}/>

@@ -19,7 +19,8 @@
       "type": "string"
     },
     "idUser": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     }
   }
 }

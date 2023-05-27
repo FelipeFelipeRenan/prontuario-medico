@@ -8,6 +8,7 @@ import CreateMedico from './src/screens/CreateMedico/CreateMedico';
 import CreateEnfermeira from './src/screens/CreateEnfermeira/CreateEnfermeira';
 import CreatePaciente from './src/screens/CreatePaciente/CreatePaciente';
 import ShowUsers from './src/screens/ShowUsers/ShowUsers';
+import CreateConsulta from './src/screens/CreateConsulta/CreateConsulta';
 // import EditUsers from './src/screens/EditUsers/EditUsers';
 // import EditUser from './src/screens/EditUser/EditUser';
 import EditUser from './src/screens/EditUser/EditUser'
@@ -30,6 +31,7 @@ function App(): JSX.Element {
         <Stack.Screen name="CreatePaciente" component={CreatePaciente} />
         <Stack.Screen name="ShowUsers" component={ShowUsers} />
         <Stack.Screen name="EditUser" component={EditUser}/>
+        <Stack.Screen name="CreateConsulta" component={CreateConsulta}/>
         {/* <Stack.Screen name="EditUsers" component={EditUsers} /> */}
       </Stack.Navigator>
     </NavigationContainer>
