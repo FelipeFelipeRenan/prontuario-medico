@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const styles = StyleSheet.create({
+  
+})
 
 export default function Menu({navigation}: any): JSX.Element {
   const [user, setUser] = useState<any>(null)
@@ -41,7 +45,7 @@ export default function Menu({navigation}: any): JSX.Element {
             <Button title='Cadastrar consulta' onPress={() => navigation.navigate('CreateConsulta')}/>
           </View>
           <View>
-            <Button title='Editar consulta' onPress={() => navigation.navigate('')}/>
+            <Button title='Ver consultas' onPress={() => navigation.navigate('ShowConsultas')}/>
           </View>
         </View>
       }
