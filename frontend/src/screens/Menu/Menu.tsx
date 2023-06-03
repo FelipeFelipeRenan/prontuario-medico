@@ -53,7 +53,7 @@ export default function Menu({navigation}: any): JSX.Element {
       {user && user.accessLevel === 3 &&
         <View>
           <View>
-            <Button title='Consultar prontuário' onPress={() => navigation.navigate('ReadProntuario')}/>
+            <Button title='Consultar prontuário' onPress={() => navigation.navigate('ShowProntuario')}/>
           </View>
         </View>
       }

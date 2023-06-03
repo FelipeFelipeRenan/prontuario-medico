@@ -13,6 +13,8 @@ import CreateConsulta from './src/screens/CreateConsulta/CreateConsulta';
 // import EditUser from './src/screens/EditUser/EditUser';
 import EditUser from './src/screens/EditUser/EditUser'
 import ShowConsultas from './src/screens/ShowConsultas/ShowConsultas';
+import EditConsulta from './src/screens/EditConsulta/EditConsulta';
+import ShowProntuario from './src/screens/ShowProntuario/ShowProntuario';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,8 @@ function App(): JSX.Element {
         <Stack.Screen name="EditUser" component={EditUser}/>
         <Stack.Screen name="CreateConsulta" component={CreateConsulta}/>
         <Stack.Screen name="ShowConsultas" component={ShowConsultas} />
+        <Stack.Screen name="EditConsulta" component={EditConsulta} />
+        <Stack.Screen name="ShowProntuario" component={ShowProntuario} />
       </Stack.Navigator>
     </NavigationContainer>
   );

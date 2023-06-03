@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 
-export default function ShowConsultas({ navigation }: any): JSX.Element {
+export default function ShowProntuario({ navigation }: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
   const [consultas, setConsultas] = useState<any>([]);
 
@@ -12,11 +12,10 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
   useEffect(() => {
     const getUser = async () => {
       const res = await AsyncStorage.getItem("user");
-      
 
       if(res){
-        setUser(JSON.parse(res))
-        loadConsulta()
+        setUser(JSON.parse(res));
+        loadConsulta();
       }
     }
     getUser();
@@ -24,28 +23,19 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
 
   //load consultas
   async function loadConsulta () {
-    //console.log(user)
 
     try {
       let options;
-      if(user && user.accessLevel === 1){
+      if(user){
         options = {
           filters: {
-            idMedico: {
+            idPaciente: {
               $eq : user.id
             }
-          }
+          },
+          sort: 'name.asc'
         }  
-      } else if(user && user.accessLevel === 2){
-        options = {
-          filters: {
-            idEnfermeira: {
-              $eq : user.id
-            }
-          }
-        }  
-      }
-      
+      } 
       const consulta = await strapi.find('consultas', options)
       //console.log(consulta.data[0])
       if(consulta){
@@ -62,7 +52,18 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
       {consultas && consultas.map((consult : any) => (
         <View>
           <Text>
-            {consult.attributes.idPaciente}
+            {consult.attributes.idMedico !== -1 && 
+              <Text>
+                Medico
+                {consult.attributes.idMedico}
+              </Text>
+            }
+            {consult.attributes.idEnfermeira !== -1 && 
+              <Text>
+                Enfermeiro(a)
+                {consult.attributes.idEnfermeira}
+              </Text>
+            }
           </Text>
           <Text>
             {consult.attributes.anamnesis}
@@ -73,7 +74,6 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
           <Text>
             {consult.attributes.createdAt}
           </Text>
-          <Button title='Editar consulta' onPress={() => navigation.navigate('EditConsulta', {id : consult.id})}/>
         </View>
       ))}      
     </View>

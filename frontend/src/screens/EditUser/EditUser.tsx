@@ -23,6 +23,7 @@ export default function EditUser({route, navigation }: any): JSX.Element {
           setEmail(response.data.email)
           setPhoneNumber(response.data.phoneNumber)
 
+          // Informações extras de para cada tipo de usuário
           if(response.data.accessLevel === 1){
             const medico = await strapi.find('medicos', {
               filters: {
