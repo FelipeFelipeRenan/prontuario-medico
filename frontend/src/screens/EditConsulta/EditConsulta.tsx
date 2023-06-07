@@ -18,7 +18,6 @@ export default function EditConsulta({route, navigation }: any): JSX.Element {
     const loadConsultaUser = async () => {
        try {
         const res = await strapi.findOne('consultas', `${id}`)
-
         if(res){
           // setIdPaciente(res.data.attributes.idPaciente);
           setAnamnesis(res.data.attributes.anamnesis);

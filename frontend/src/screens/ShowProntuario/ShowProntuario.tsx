@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Text, View, TextInput, Switch } from 'react-native';
+import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
@@ -39,7 +39,27 @@ export default function ShowProntuario({ navigation }: any): JSX.Element {
       const consulta = await strapi.find('consultas', options)
       //console.log(consulta.data[0])
       if(consulta){
-        setConsultas(consulta.data)
+        // setConsultas(consulta.data)
+        let profissional;
+        consulta.data.forEach(async (consult) => {
+          if(consult.attributes.idMedico !== -1){
+            profissional = await strapi.findOne('users', consult.attributes.idMedico);
+          } else {
+            profissional = await strapi.findOne('users', consult.attributes.idEnfermeira);
+          }
+          // console.log(profissional.username)
+          if(profissional) {
+            const professional = {
+              idMedico : consult.attributes.idMedico,
+              idEnfermeira : consult.attributes.idEnfermeira,
+              anamnesis : consult.attributes.anamnesis,
+              comment : consult.attributes.comment,
+              createdAt : consult.attributes.createdAt,
+              username : profissional.username
+            }
+            setConsultas((prevConsulta: any) => [...prevConsulta, professional])
+          }
+        })
         // Pegar paciente e exibir o nome dele
       }
     } catch (error) {
@@ -48,34 +68,38 @@ export default function ShowProntuario({ navigation }: any): JSX.Element {
   };
 
   return (
-    <View>
-      {consultas && consultas.map((consult : any) => (
+    <SafeAreaView>
+      <ScrollView>
         <View>
-          <Text>
-            {consult.attributes.idMedico !== -1 && 
+          {consultas && consultas.map((consult : any) => (
+            <View>
               <Text>
-                Medico
-                {consult.attributes.idMedico}
+                {consult.idMedico !== -1 &&
+                  <Text>
+                    Medico:
+                    {consult.username}
+                  </Text>
+                }
+                {consult.idEnfermeira !== -1 &&
+                  <Text>
+                    Enfermeiro(a):
+                    {consult.username}
+                  </Text>
+                }
               </Text>
-            }
-            {consult.attributes.idEnfermeira !== -1 && 
               <Text>
-                Enfermeiro(a)
-                {consult.attributes.idEnfermeira}
+                {consult.anamnesis}
               </Text>
-            }
-          </Text>
-          <Text>
-            {consult.attributes.anamnesis}
-          </Text>
-          <Text>
-            {consult.attributes.comment}
-          </Text>
-          <Text>
-            {consult.attributes.createdAt}
-          </Text>
+              <Text>
+                {consult.comment}
+              </Text>
+              <Text>
+                {consult.createdAt}
+              </Text>
+            </View>
+          ))}
         </View>
-      ))}      
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

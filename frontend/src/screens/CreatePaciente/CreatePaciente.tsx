@@ -14,6 +14,9 @@ export default function CreatePaciente({ navigation }: any): JSX.Element {
 
 
   const handleButton = async () => {
+    // username mín 3 characters
+    // email min 6 characters
+    // password min 6 characters
     if (username === '' || email === '' || password === '' || phoneNumber === '') {
       console.log('Alguns dados não foram completados');
       return;

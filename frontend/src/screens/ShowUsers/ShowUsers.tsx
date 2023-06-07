@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Text, View, TextInput, Switch } from 'react-native';
+import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 
@@ -12,22 +12,26 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
     const findUsers = async () => {
       const userS = await strapi.find('users');
       setUsers(userS);
-      console.log(users)
+      // console.log(users)
     };
     findUsers();
   }, []);
 
   return (
-    <View>
-      {users && users.map((user : any) => (
+    <SafeAreaView>
+      <ScrollView>
         <View>
-          <Text>{user.email}</Text>
-          <Text>{user.username}</Text>
-          <Text>{user.accessLevel}</Text>
-          <Button title="Editar" onPress={() => navigation.navigate('EditUser', {id : user.id})} />
+          {users && users.map((user : any) => (
+            <View>
+              <Text>{user.email}</Text>
+              <Text>{user.username}</Text>
+              <Text>{user.accessLevel}</Text>
+              <Button title="Editar" onPress={() => navigation.navigate('EditUser', {id : user.id})} />
+            </View>
+          ))}
+        
         </View>
-      ))}
-      
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

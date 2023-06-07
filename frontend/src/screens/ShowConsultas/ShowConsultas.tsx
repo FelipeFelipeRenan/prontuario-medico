@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Text, View, TextInput, Switch } from 'react-native';
+import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
@@ -47,35 +47,76 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
       }
       
       const consulta = await strapi.find('consultas', options)
-      //console.log(consulta.data[0])
+      // let consulta;
+      // if(user && user.accessLevel === 1){
+      //   consulta = await axioS.get(`api/consultas?filters[idMedico][$eq]=${user.id}`)
+      // } else if(user && user.accessLevel === 2){
+      //   consulta = await axioS.get(`api/consultas?filters[idEnfermeira][$eq]=${user.id}`)
+      // }
+      // if(consulta){
+      //   console.log(consulta.data.data[0].attributes.anamnesis)
+      // }
+      
+      
       if(consulta){
-        setConsultas(consulta.data)
+        // console.log(consulta.data.data[0])  
+        // setConsultas(consulta.data)
+        consulta.data.forEach(async (consult) => {
+          const paciente = await strapi.findOne('users',consult.attributes.idPaciente);
+          // console.log(consult)
+          let consulte = {
+            id : consult.id,
+            idPaciente : paciente.id,
+            idMedico : consult.attributes.idMedico,
+            idEnfermeira : consult.attributes.idEnfermeira,
+            username : paciente.username,
+            anamnesis : consult.attributes.anamnesis,
+            comment : consult.attributes.comment,
+            createdAt : consult.attributes.createdAt
+          }
+          
+          console.log(consulte)
+          if(user && user.accessLevel === 2 && consulte.idMedico === -1){
+            return;
+          }
+          if(user && user.accessLevel === 1 && consulte.idEnfermeira === -1){
+            return;
+          }
+
+          setConsultas((prevConsultas) => [...prevConsultas, consulte]);
+          
+        })
         // Pegar paciente e exibir o nome dele
       }
     } catch (error) {
       console.log(error)
     }
   };
+  // console.log(consultas)
 
   return (
-    <View>
-      {consultas && consultas.map((consult : any) => (
+    <SafeAreaView>
+      <ScrollView>
         <View>
-          <Text>
-            {consult.attributes.idPaciente}
-          </Text>
-          <Text>
-            {consult.attributes.anamnesis}
-          </Text>
-          <Text>
-            {consult.attributes.comment}
-          </Text>
-          <Text>
-            {consult.attributes.createdAt}
-          </Text>
-          <Button title='Editar consulta' onPress={() => navigation.navigate('EditConsulta', {id : consult.id})}/>
+          {consultas && consultas.map((consult : any) => (
+            <View>
+              <Text>
+                {consult.username}
+              </Text>
+              <Text>
+                {consult.anamnesis}
+              </Text>
+              <Text>
+                {consult.comment}
+              </Text>
+              <Text>
+                {consult.createdAt}
+              </Text>
+              <Button title='Editar consulta' onPress={() => navigation.navigate('EditConsulta', {id : consult.id})}/>
+            </View>
+          ))}
         </View>
-      ))}      
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
