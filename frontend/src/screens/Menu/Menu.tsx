@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
+import TabNavigator from '../../components/TabNavigator';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const styles = StyleSheet.create({
@@ -57,6 +59,7 @@ export default function Menu({navigation}: any): JSX.Element {
           </View>
         </View>
       }
+      <TabNavigator/>
     </View>
   );
 }

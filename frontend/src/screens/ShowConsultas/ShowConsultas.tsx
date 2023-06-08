@@ -3,6 +3,7 @@ import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
+import TabNavigator from '../../components/TabNavigator';
 
 export default function ShowConsultas({ navigation }: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
@@ -61,7 +62,7 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
       if(consulta){
         // console.log(consulta.data.data[0])  
         // setConsultas(consulta.data)
-        consulta.data.forEach(async (consult) => {
+        consulta.data.forEach(async (consult: { attributes: { idPaciente: string | number; idMedico: any; idEnfermeira: any; anamnesis: any; comment: any; createdAt: any; }; id: any; }) => {
           const paciente = await strapi.findOne('users',consult.attributes.idPaciente);
           // console.log(consult)
           let consulte = {
@@ -83,7 +84,7 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
             return;
           }
 
-          setConsultas((prevConsultas) => [...prevConsultas, consulte]);
+          setConsultas((prevConsultas: any) => [...prevConsultas, consulte]);
           
         })
         // Pegar paciente e exibir o nome dele
@@ -116,6 +117,7 @@ export default function ShowConsultas({ navigation }: any): JSX.Element {
             </View>
           ))}
         </View>
+        <TabNavigator/>
       </ScrollView>
     </SafeAreaView>
   );

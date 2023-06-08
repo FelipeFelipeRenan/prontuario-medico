@@ -3,6 +3,7 @@ import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
+import TabNavigator from '../../components/TabNavigator';
 
 export default function ShowProntuario({ navigation }: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
@@ -99,6 +100,7 @@ export default function ShowProntuario({ navigation }: any): JSX.Element {
             </View>
           ))}
         </View>
+        <TabNavigator/>
       </ScrollView>
     </SafeAreaView>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button, Text, View, TextInput, Switch } from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
+import TabNavigator from '../../components/TabNavigator';
 
 export default function EditUser({route, navigation }: any): JSX.Element {
   const {id} = route.params;
@@ -113,6 +114,8 @@ export default function EditUser({route, navigation }: any): JSX.Element {
 
         <Button title="Editar" onPress={() => handleButton()} />
       </View>
+      <TabNavigator/>
+
     </View>
   );
 }

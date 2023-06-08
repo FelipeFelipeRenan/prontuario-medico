@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Text, View, TextInput, Switch } from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
+import TabNavigator from '../../components/TabNavigator';
 
 export default function CreatePaciente({ navigation }: any): JSX.Element {
   const [username, setUsername] = useState('');
@@ -89,6 +90,7 @@ export default function CreatePaciente({ navigation }: any): JSX.Element {
         }}
       />
       <Button title="Cadastrar" onPress={() => handleButton()} />
+      <TabNavigator/>
     </View>
   );
 }

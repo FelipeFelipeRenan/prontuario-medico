@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
+import TabNavigator from '../../components/TabNavigator';
+
 
 export default function ShowUsers({ navigation }: any): JSX.Element {
   const [username, setUsername] = useState('');
@@ -31,6 +33,7 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
           ))}
         
         </View>
+        <TabNavigator/>
       </ScrollView>
     </SafeAreaView>
   );
