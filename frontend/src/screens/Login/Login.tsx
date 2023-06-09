@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, {useState} from 'react';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Input, InputGroup, InputLeftAddon, Stack} from 'native-base';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,11 +14,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Login({ navigation }: any): JSX.Element {
+export default function Login({navigation}: any): JSX.Element {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const [error, setError] = useState('');
+
+  const [show, setShow] = useState(false);
 
   const handleButton = async () => {
     try {
@@ -28,7 +31,7 @@ export default function Login({ navigation }: any): JSX.Element {
         return;
       }
 
-      const { user, jwt } = await strapi.login({
+      const {user, jwt} = await strapi.login({
         identifier: email,
         password: senha,
       });
@@ -47,22 +50,30 @@ export default function Login({ navigation }: any): JSX.Element {
     <View>
       {error && <Text>{error}</Text>}
       <View style={styles.container}>
-        <TextInput
-          placeholder="Email"
-          value={email}
-          onChangeText={value => {
-            setEmail(value);
-          }}
-          inputMode="email"
-        />
-        <TextInput
-          placeholder="Senha"
-          value={senha}
-          secureTextEntry
-          onChangeText={value => {
-            setSenha(value);
-          }}
-        />
+        <Stack space={4} w="100%" alignItems="center">
+          <InputLeftAddon children={'https://'} />
+          <Input
+            w={{
+              base: '70%',
+              md: '100%',
+            }}
+            placeholder="Email"
+            value={email}
+            onChangeText={value => {
+              setEmail(value);
+            }}
+            inputMode="email"
+          />
+          <Input
+            placeholder="Senha"
+            value={senha}
+            secureTextEntry
+            onChangeText={value => {
+              setSenha(value);
+            }}
+          />
+        </Stack>
+
         <Button title="Entrar" onPress={() => handleButton()} />
       </View>
     </View>
