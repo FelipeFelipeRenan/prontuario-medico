@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Icon,Input, InputGroup, InputLeftAddon, Pressable, Stack} from 'native-base';
-import { MaterialIcons } from '@expo/vector-icons';
+import {Button,Icon,Input, InputGroup, InputLeftAddon, Pressable, Stack} from 'native-base';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,10 @@ export default function Login({navigation}: any): JSX.Element {
 
   const [show, setShow] = useState(false);
 
+  const [clicked, setClicked] = useState(false);
+
   const handleButton = async () => {
+    setClicked(true)
     try {
       // const res = await axios.get('https://www.google.com')
       // console.log(res)
@@ -88,7 +91,7 @@ export default function Login({navigation}: any): JSX.Element {
           />
           {error && <Text>{error}</Text>}
         </Stack>
-        <Button title="Entrar" onPress={() => handleButton()} />
+        {clicked && !error? <Button isLoading>Button</Button> : <Button onPress={() => handleButton()} > Entrar </Button>}
       </View>
     </View>
   );
