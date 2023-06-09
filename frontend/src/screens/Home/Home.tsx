@@ -1,4 +1,4 @@
-import {Box, Container, Flex, Image} from 'native-base';
+import {Box,Image} from 'native-base';
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 

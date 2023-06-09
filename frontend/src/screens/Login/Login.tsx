@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Input, InputGroup, InputLeftAddon, Stack} from 'native-base';
+import {Icon,Input, InputGroup, InputLeftAddon, Pressable, Stack} from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const styles = StyleSheet.create({
   container: {
@@ -48,34 +49,53 @@ export default function Login({navigation}: any): JSX.Element {
 
   return (
     <View>
-      {error && <Text>{error}</Text>}
+      
       <View style={styles.container}>
         <Stack space={4} w="100%" alignItems="center">
-          <InputLeftAddon children={'https://'} />
           <Input
             w={{
-              base: '70%',
-              md: '100%',
+              base: '75%',
+              md: '25%',
             }}
-            placeholder="Email"
-            value={email}
+            InputLeftElement={
+              <Text>Email</Text>
+            
+            }
+            placeholder="Name"
             onChangeText={value => {
               setEmail(value);
             }}
-            inputMode="email"
+            
+
           />
           <Input
-            placeholder="Senha"
-            value={senha}
-            secureTextEntry
+            w={{
+              base: '75%',
+              md: '25%',
+            }}
+            type={show ? 'text' : 'password'}
+            InputRightElement={
+              <Pressable onPress={() => setShow(!show)}>
+                <Text>revelar</Text>
+              </Pressable>
+            }
+            placeholder="Password"
             onChangeText={value => {
               setSenha(value);
             }}
+            
+            
           />
+          {error && <Text>{error}</Text>}
         </Stack>
-
         <Button title="Entrar" onPress={() => handleButton()} />
       </View>
     </View>
   );
 }
+
+/* 
+
+
+            
+            */
