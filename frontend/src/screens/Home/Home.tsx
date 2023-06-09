@@ -11,20 +11,23 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   logo: {
-    width: "100%",
-    justifyContent: 'space-between',
-    marginLeft: 10,
-    marginTop: 25,
+  
+    marginTop: 100,
   },
 
   applogo: {
-    alignSelf:"flex-start",
+    
     marginBottom: 15,
     color: "red",
   },
+  appName:{
+    alignSelf:"center", 
+    fontFamily: "roboto",
+    fontSize:30,
+  },
 
   footer: {
-    marginBottom: 0,
+    marginBottom: 10,
   },
 });
 
@@ -37,7 +40,7 @@ export default function Home({navigation}: any): JSX.Element {
       uri: "https://wallpaperaccess.com/full/317501.jpg"
     }} alt="Alternate Text" size="xl" />
         </Box>
-        <Text>Prontuario medico</Text>
+        <Text style={styles.appName}>CCCP</Text>
       </View>
       <View>
         <Box>
