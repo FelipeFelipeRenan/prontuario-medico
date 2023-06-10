@@ -117,7 +117,7 @@ export default function Menu({navigation}: any): JSX.Element {
             </Button>
 
           {/* Logout */}
-          <Button size={120} borderRadius={4} onPress={() => logout()}>
+          <Button size={120} borderRadius={4} onPress={() => logout()} alignSelf="center">
             Sair
           </Button>
         </View>

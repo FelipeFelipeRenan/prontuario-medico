@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
+import { Button, Text, View, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import strapi from '../../utils/strapi/strapi';
-import axioS from '../../utils/axios/axios';
 import TabNavigator from '../../components/TabNavigator';
+import { Stack } from 'native-base';
+
+const styles = StyleSheet.create({
+  items:{
+    marginTop: 10,
+  }
+})
 
 
 export default function ShowUsers({ navigation }: any): JSX.Element {
@@ -22,9 +28,10 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
   return (
     <SafeAreaView>
       <ScrollView>
+      <Stack space={6} w="100%" alignItems="center" marginTop={30}>
         <View>
           {users && users.map((user : any) => (
-            <View>
+            <View style={styles.items}>
               <Text>{user.email}</Text>
               <Text>{user.username}</Text>
               <Text>{user.accessLevel}</Text>
@@ -34,6 +41,7 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
         
         </View>
         <TabNavigator/>
+        </Stack>
       </ScrollView>
     </SafeAreaView>
   );
