@@ -120,8 +120,11 @@ export default function Menu({navigation}: any): JSX.Element {
       {/*Paciente*/}
       {user && user.accessLevel === 3 && (
         <View style={styles.container}>
-          <Button onPress={() => navigation.navigate('ShowProntuario')}>
-          <Text style={styles.cardText}>Consultar prontuário</Text>
+          <Button
+            size={120}
+            borderRadius={4}
+            onPress={() => navigation.navigate('ShowProntuario')}>
+            <Text style={styles.cardText}>Consultar prontuário</Text>
           </Button>
 
           {/* Logout */}
@@ -130,8 +133,7 @@ export default function Menu({navigation}: any): JSX.Element {
             borderRadius={4}
             onPress={() => logout()}
             alignSelf="center">
-              <Text style={styles.cardText}>Sair</Text>
-            
+            <Text style={styles.cardText}>Sair</Text>
           </Button>
         </View>
       )}
