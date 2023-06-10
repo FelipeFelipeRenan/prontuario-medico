@@ -1,11 +1,14 @@
+
 import { useState } from 'react';
 import { Button, Text, View, TextInput, Switch } from 'react-native';
 import {Radio} from 'native-base'
+
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 import TabNavigator from '../../components/TabNavigator';
+import {Input, Stack} from 'native-base';
 
-export default function CreateMedico({ navigation }: any): JSX.Element {
+export default function CreateMedico({navigation}: any): JSX.Element {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,46 +17,63 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
   const [CRM, setCRM] = useState('');
   const [specialty, setSpecialty] = useState('');
 
-
-
   const handleButton = async () => {
     // username mín 3 characters
     // email min 6 characters
     // password min 6 characters
-    if (username === '' || email === '' || password === '' || phoneNumber === '') {
+    if (
+      username === '' ||
+      email === '' ||
+      password === '' ||
+      phoneNumber === ''
+    ) {
       console.log('Alguns dados não foram completados');
       return;
     }
 
     // register user
-    const res: any = await axioS.post('/api/users', {
-      username,
-      email,
-      password,
-      role: 1,
-      accessLevel: 1,
-      sex,
-      phoneNumber,
-    }).then(async (response) => {
-      // specific infos
-      const medico = await strapi.create('medicos', { idUser: response.data.id, CRM, specialty })
-      if (medico) {
-        console.log('Medico criado com sucesso');
-      }
-    });
-
-  }
+    const res: any = await axioS
+      .post('/api/users', {
+        username,
+        email,
+        password,
+        role: 1,
+        accessLevel: 1,
+        sex,
+        phoneNumber,
+      })
+      .then(async response => {
+        // specific infos
+        const medico = await strapi.create('medicos', {
+          idUser: response.data.id,
+          CRM,
+          specialty,
+        });
+        if (medico) {
+          console.log('Medico criado com sucesso');
+        }
+      });
+  };
 
   return (
     <View>
-      <TextInput
-        placeholder="Nome de usuário"
+      <Stack space={4} w="100%" alignItems="center" marginTop={30}>
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
         value={username}
+        placeholder="Nome de usuário"
         onChangeText={value => {
           setUsername(value);
         }}
       />
-      <TextInput
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
         placeholder="Email"
         value={email}
         onChangeText={value => {
@@ -61,7 +81,11 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
         }}
         inputMode="email"
       />
-      <TextInput
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
         placeholder="Senha"
         value={password}
         secureTextEntry
@@ -69,7 +93,11 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
           setPassword(value);
         }}
       />
-      <TextInput
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
         placeholder="Telefone"
         value={phoneNumber}
         onChangeText={value => {
@@ -77,6 +105,13 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
         }}
         inputMode="numeric"
       />
+
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
+
       <Text>Sexo</Text>
       <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number" value={sex} onChange={nextValue => { setSex(nextValue);}}>
         <Radio value="false" my={1}>
@@ -86,15 +121,17 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
           <Text>Feminino</Text>
         </Radio>
       </Radio.Group>
-
-      <TextInput
         placeholder="CRM"
         value={CRM}
         onChangeText={value => {
           setCRM(value);
         }}
       />
-      <TextInput
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
         placeholder="Especialidade"
         value={specialty}
         onChangeText={value => {
@@ -102,7 +139,8 @@ export default function CreateMedico({ navigation }: any): JSX.Element {
         }}
       />
       <Button title="Cadastrar" onPress={() => handleButton()} />
-      <TabNavigator/>
+      <TabNavigator />
+      </Stack>
     </View>
   );
 }
