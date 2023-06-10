@@ -89,36 +89,49 @@ export default function Menu({navigation}: any): JSX.Element {
             <Text style={styles.cardText}>Ver usuários do sistema</Text>
           </Button>
           {/* Logout */}
-          <Button size={120} borderRadius={4} onPress={() => logout()}>Sair</Button>
+          <Button size={120} borderRadius={4} onPress={() => logout()}>
+            Sair
+          </Button>
         </View>
       )}
       {/* Médico e enfermeira*/}
       {user && (user.accessLevel === 1 || user.accessLevel === 2) && (
         <View style={styles.container}>
+          <Button
+            onPress={() => navigation.navigate('CreateConsulta')}
+            size={120}
+            borderRadius={4}>
+            <Text style={styles.cardText}>Cadastrar consulta</Text>
+          </Button>
 
-            <Button onPress={() => navigation.navigate('CreateConsulta')}>
-              Cadastrar consulta
-            </Button>
-
-            <Button onPress={() => navigation.navigate('ShowConsultas')}>
-              Ver consultas
-            </Button>
+          <Button
+            onPress={() => navigation.navigate('ShowConsultas')}
+            size={120}
+            borderRadius={4}>
+            <Text style={styles.cardText}>Ver consultas</Text>
+          </Button>
 
           {/* Logout */}
-          <Button onPress={() => logout()}>Sair</Button>
+          <Button onPress={() => logout()} size={120} borderRadius={4}>
+            <Text style={styles.cardText}>Sair</Text>
+          </Button>
         </View>
       )}
       {/*Paciente*/}
       {user && user.accessLevel === 3 && (
         <View style={styles.container}>
-
-            <Button onPress={() => navigation.navigate('ShowProntuario')}>
-              Consultar prontuário
-            </Button>
+          <Button onPress={() => navigation.navigate('ShowProntuario')}>
+          <Text style={styles.cardText}>Consultar prontuário</Text>
+          </Button>
 
           {/* Logout */}
-          <Button size={120} borderRadius={4} onPress={() => logout()} alignSelf="center">
-            Sair
+          <Button
+            size={120}
+            borderRadius={4}
+            onPress={() => logout()}
+            alignSelf="center">
+              <Text style={styles.cardText}>Sair</Text>
+            
           </Button>
         </View>
       )}
