@@ -47,6 +47,7 @@ export default function CreatePaciente({navigation}: any): JSX.Element {
         });
         if (paciente) {
           console.log('Paciente criado com sucesso');
+          navigation.navigate("Menu")
         }
       });
   };
