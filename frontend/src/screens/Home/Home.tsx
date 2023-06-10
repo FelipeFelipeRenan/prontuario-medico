@@ -1,7 +1,6 @@
 import {Box} from 'native-base';
 import React from 'react';
 import {Button, StyleSheet, Text, View, Image} from 'react-native';
-
 import logo from '../../props/download.jpeg'
 
 const styles = StyleSheet.create({
@@ -13,19 +12,17 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   logo: {
-  
     marginTop: 100,
   },
 
   applogo: {
-    
     marginBottom: 15,
-    color: "red",
+    color: 'red',
   },
-  appName:{
-    alignSelf:"center", 
-    fontFamily: "roboto",
-    fontSize:30,
+  appName: {
+    alignSelf: 'center',
+    fontFamily: 'roboto',
+    fontSize: 30,
   },
 
   footer: {
@@ -38,20 +35,19 @@ export default function Home({navigation}: any): JSX.Element {
     <View style={styles.container}>
       <View style={styles.logo}>
         <Box>
-        {/* <Image source={{
+          {/* <Image source={{
       uri: "https://wallpaperaccess.com/full/317501.jpg"
     }} alt="Alternate Text" size="xl" /> */}
-      <Image source={logo} />
+    <Image source={logo} />
         </Box>
         <Text style={styles.appName}>CCCP</Text>
       </View>
       <View>
         <Box>
-          <Button          
+          <Button
             title="Acessar o sistema"
             onPress={() => navigation.navigate('Login')}
           />
-          
         </Box>
       </View>
       <View style={styles.footer}>

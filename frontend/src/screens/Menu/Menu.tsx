@@ -38,16 +38,14 @@ const styles = StyleSheet.create({
 export default function Menu({navigation}: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
 
-
   const logout = async () => {
     try {
-      await AsyncStorage.removeItem("user");
-      navigation.navigate("Home");
+      await AsyncStorage.removeItem('user');
+      navigation.navigate('Home');
     } catch (error) {
       console.log(error);
     }
-    }
-
+  };
 
   useEffect(() => {
     const getUser = async () => {
@@ -90,38 +88,40 @@ export default function Menu({navigation}: any): JSX.Element {
             borderRadius={4}>
             <Text style={styles.cardText}>Ver usuários do sistema</Text>
           </Button>
+          {/* Logout */}
+          <Button size={120} borderRadius={4} onPress={() => logout()}>Sair</Button>
         </View>
       )}
       {/* Médico e enfermeira*/}
       {user && (user.accessLevel === 1 || user.accessLevel === 2) && (
-        <View>
-          <View>
+        <View style={styles.container}>
+
             <Button onPress={() => navigation.navigate('CreateConsulta')}>
               Cadastrar consulta
             </Button>
-          </View>
-          <View>
+
             <Button onPress={() => navigation.navigate('ShowConsultas')}>
               Ver consultas
             </Button>
-          </View>
+
+          {/* Logout */}
+          <Button onPress={() => logout()}>Sair</Button>
         </View>
       )}
       {/*Paciente*/}
       {user && user.accessLevel === 3 && (
-        <View>
-          <View>
+        <View style={styles.container}>
+
             <Button onPress={() => navigation.navigate('ShowProntuario')}>
               Consultar prontuário
             </Button>
-          </View>
+
+          {/* Logout */}
+          <Button size={120} borderRadius={4} onPress={() => logout()}>
+            Sair
+          </Button>
         </View>
       )}
-
-      {/* Logout */}
-      <Button onPress={() => logout()}>Sair</Button>
-
-
     </View>
   );
 }
