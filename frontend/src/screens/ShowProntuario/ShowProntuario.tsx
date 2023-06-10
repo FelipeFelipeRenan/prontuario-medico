@@ -1,9 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView } from 'react-native';
+import { Button, Text, View, TextInput, Switch, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 import TabNavigator from '../../components/TabNavigator';
+import { Stack } from 'native-base';
+
+const styles = StyleSheet.create({
+
+  items:{
+    marginTop: 5,
+    marginBottom: 10,
+
+  }
+})
 
 export default function ShowProntuario({ navigation }: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
@@ -71,10 +81,11 @@ export default function ShowProntuario({ navigation }: any): JSX.Element {
   return (
     <SafeAreaView>
       <ScrollView>
+      <Stack space={4} w="100%" alignItems="center" marginTop={30}>
         <View>
           {consultas && consultas.map((consult : any) => (
             <View>
-              <Text>
+              <Text style={styles.items}>
                 {consult.idMedico !== -1 &&
                   <Text>
                     Medico:
@@ -100,6 +111,7 @@ export default function ShowProntuario({ navigation }: any): JSX.Element {
             </View>
           ))}
         </View>
+        </Stack>
         <TabNavigator/>
       </ScrollView>
     </SafeAreaView>
