@@ -30,7 +30,7 @@ function App(): JSX.Element {
             options={{headerShown: false}}
           />
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Menu" component={Menu} options={{headerShown: false}}/>
           <Stack.Screen name="CreateMedico" component={CreateMedico} />
           <Stack.Screen name="CreateEnfermeira" component={CreateEnfermeira} />
           <Stack.Screen name="CreatePaciente" component={CreatePaciente} />

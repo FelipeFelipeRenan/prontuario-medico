@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import { Button, Text, View, TextInput, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { Box } from 'native-base';
+import { Box, HamburgerIcon, CloseIcon, HStack } from 'native-base';
 
 
 const styles = StyleSheet.create({
@@ -70,9 +70,15 @@ export default function TabNavigator(): JSX.Element {
     }
 
     {user && 
-      <Box  maxW="40">
-        <Text onPress={() => navigation.navigate('Menu')}>Menu</Text>
-        <Text onPress={() => logout()}>Sair</Text>
+      <Box>
+        <HStack>
+          <HamburgerIcon size="5" onPress={() => navigation.navigate('Menu')}/>
+          <Text>Menu</Text>
+        </HStack>
+        <HStack>
+          <CloseIcon size="5" onPress={() => logout()}/>
+          <Text>Sair</Text>
+        </HStack>
       </Box>
     }
     </View>
