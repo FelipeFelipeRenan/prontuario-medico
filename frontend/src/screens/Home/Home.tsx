@@ -1,6 +1,8 @@
-import {Box,Image} from 'native-base';
+import {Box} from 'native-base';
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View, Image} from 'react-native';
+
+import logo from '../../props/download.jpeg'
 
 const styles = StyleSheet.create({
   container: {
@@ -36,9 +38,10 @@ export default function Home({navigation}: any): JSX.Element {
     <View style={styles.container}>
       <View style={styles.logo}>
         <Box>
-        <Image source={{
+        {/* <Image source={{
       uri: "https://wallpaperaccess.com/full/317501.jpg"
-    }} alt="Alternate Text" size="xl" />
+    }} alt="Alternate Text" size="xl" /> */}
+      <Image source={logo} />
         </Box>
         <Text style={styles.appName}>CCCP</Text>
       </View>

@@ -26,6 +26,17 @@ const styles = StyleSheet.create({
 export default function Menu({navigation}: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
 
+
+  const logout = async () => {
+    try {
+      await AsyncStorage.removeItem("user");
+      navigation.navigate("Home");
+    } catch (error) {
+      console.log(error);
+    }
+    }
+
+
   useEffect(() => {
     const getUser = async () => {
       const res = await AsyncStorage.getItem('user');
@@ -90,6 +101,11 @@ export default function Menu({navigation}: any): JSX.Element {
           </View>
         </View>
       )}
+
+      {/* Logout */}
+      <Button onPress={() => logout()}>Sair</Button>
+
+
     </View>
   );
 }

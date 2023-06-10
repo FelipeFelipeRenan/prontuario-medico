@@ -65,7 +65,7 @@ export default function Login({navigation}: any): JSX.Element {
               md: '25%',
             }}
             InputLeftElement={<Text>Email</Text>}
-            placeholder="Name"
+            placeholder="exemplo@email.com.br"
             onChangeText={value => {
               setEmail(value);
             }}

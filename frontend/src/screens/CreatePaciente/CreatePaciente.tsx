@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Button, Text, View, TextInput, Switch } from 'react-native';
+import { Button, Text, View, TextInput} from 'react-native';
+import {Radio} from 'native-base'
+
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 import TabNavigator from '../../components/TabNavigator';
@@ -9,7 +11,7 @@ export default function CreatePaciente({ navigation }: any): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [sex, setSex] = useState(false);
+  const [sex, setSex] = useState('false');
   const [address, setAddress] = useState('');
 
 
@@ -75,13 +77,17 @@ export default function CreatePaciente({ navigation }: any): JSX.Element {
         }}
         inputMode="numeric"
       />
-      <Text>Informe o sexo: falso : homem, verdadeiro : mulher</Text>
-      <Switch
-        trackColor={{ false: '#767577', true: '#81b0ff' }}
-        thumbColor={sex ? '#f5dd4b' : '#f4f3f4'}
-        onValueChange={() => setSex(previousSex => !previousSex)}
-        value={sex}
-      />
+
+      <Text>Sexo</Text>
+      <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number" value={sex} onChange={nextValue => { setSex(nextValue);}}>
+        <Radio value="false" my={1}>
+          <Text>Masculino</Text>
+        </Radio>
+        <Radio value="true" my={1}>
+          <Text>Feminino</Text>
+        </Radio>
+      </Radio.Group>
+
       <TextInput
         placeholder="Endereço"
         value={address}

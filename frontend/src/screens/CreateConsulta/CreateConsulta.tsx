@@ -1,5 +1,6 @@
 import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from 'react';
 import { Button, Text, View, TextInput, Switch } from 'react-native';
+import { Select, Box, CheckIcon, Center, NativeBaseProvider } from "native-base";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
@@ -92,6 +93,19 @@ export default function CreateConsulta({ navigation }: any): JSX.Element {
           <Text onPress={() => setPaciente(pacient)}>{pacient.username}</Text>
         </View>
       ))}
+
+      <Center>
+        <Box maxW="300">
+          <Select selectedValue={paciente} minWidth="200" accessibilityLabel="Escolha o paciente" placeholder="Escolha o paciente" _selectedItem={{
+          bg: "teal.600",
+          endIcon: <CheckIcon size="5" />
+        }} mt={1} onValueChange={itemValue => setPaciente(itemValue)}>
+          {usersPacientes && usersPacientes.map((pacient) => (
+            <Select.Item label={pacient.username} value={pacient} />
+          ))}
+          </Select>
+        </Box>
+      </Center>
 
       <TextInput
         placeholder="Amamnesis"
