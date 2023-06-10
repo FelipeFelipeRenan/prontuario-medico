@@ -1,25 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Button} from 'native-base';
+import {Button, TextArea} from 'native-base';
 import TabNavigator from '../../components/TabNavigator';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Neumorphism from 'react-native-neumorphism';
 
 const styles = StyleSheet.create({
   title: {
     fontFamily: 'roboto',
     fontSize: 20,
     alignSelf: 'center',
+    marginTop: 10,
   },
   container: {
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 50,
+    marginRight: 50,
     marginTop: 50,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 50,
     flexWrap: 'wrap',
+  },
+  cardText: {
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    margin: 10,
+  },
+
+  buttons: {
+    textShadowColor: 'red',
   },
 });
 
@@ -45,23 +57,27 @@ export default function Menu({navigation}: any): JSX.Element {
         <View style={styles.container}>
           <Button
             onPress={() => navigation.navigate('CreateMedico')}
-            size={79}
+            size={120}
             borderRadius={4}>
-            Cadastrar médico
+            <Text style={styles.cardText}> Cadastrar médico </Text>
           </Button>
           <Button
             onPress={() => navigation.navigate('CreateEnfermeira')}
-            size={79}>
-            Cadastrar enfermeira(o)
+            size={120}
+            borderRadius={4}>
+            <Text style={styles.cardText}>Cadastrar enfermeira(o)</Text>
           </Button>
           <Button
             onPress={() => navigation.navigate('CreatePaciente')}
-            size={79}>
-            Cadastrar paciente
+            size={120}
+            borderRadius={4}>
+            <Text style={styles.cardText}>Cadastrar paciente</Text>
           </Button>
-
-          <Button onPress={() => navigation.navigate('ShowUsers')} size={79}>
-            Ver usuários do sistema
+          <Button
+            onPress={() => navigation.navigate('ShowUsers')}
+            size={120}
+            borderRadius={4}>
+            <Text style={styles.cardText}>Ver usuários do sistema</Text>
           </Button>
         </View>
       )}
