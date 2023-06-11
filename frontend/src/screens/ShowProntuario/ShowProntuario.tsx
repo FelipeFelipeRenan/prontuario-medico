@@ -1,18 +1,13 @@
 import {useState, useEffect} from 'react';
 import {
-  Button,
   Text,
   View,
-  TextInput,
-  Switch,
   SafeAreaView,
   ScrollView,
   StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
-import axioS from '../../utils/axios/axios';
-import TabNavigator from '../../components/TabNavigator';
 import {Stack} from 'native-base';
 
 const styles = StyleSheet.create({

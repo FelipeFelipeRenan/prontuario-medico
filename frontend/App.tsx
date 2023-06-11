@@ -30,16 +30,20 @@ function App(): JSX.Element {
             options={{headerShown: false}}
           />
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Menu" component={Menu} options={{headerShown: false}}/>
-          <Stack.Screen name="CreateMedico" component={CreateMedico} />
-          <Stack.Screen name="CreateEnfermeira" component={CreateEnfermeira} />
-          <Stack.Screen name="CreatePaciente" component={CreatePaciente} />
-          <Stack.Screen name="ShowUsers" component={ShowUsers} />
-          <Stack.Screen name="EditUser" component={EditUser} />
-          <Stack.Screen name="CreateConsulta" component={CreateConsulta} />
-          <Stack.Screen name="ShowConsultas" component={ShowConsultas} />
-          <Stack.Screen name="EditConsulta" component={EditConsulta} />
-          <Stack.Screen name="ShowProntuario" component={ShowProntuario} />
+          <Stack.Screen
+            name="Menu"
+            component={Menu}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="Cadastrar Médico" component={CreateMedico} />
+          <Stack.Screen name="Cadastrar Enfermeira" component={CreateEnfermeira} />
+          <Stack.Screen name="Cadastrar Paciente" component={CreatePaciente} />
+          <Stack.Screen name="Mostrar Usuários" component={ShowUsers} />
+          <Stack.Screen name="Editar Usuário" component={EditUser} />
+          <Stack.Screen name="Cadastrar Consulta" component={CreateConsulta} />
+          <Stack.Screen name="Mostrar Consultas" component={ShowConsultas} />
+          <Stack.Screen name="Editar Consulta" component={EditConsulta} />
+          <Stack.Screen name="Mostrar Prontuario" component={ShowProntuario} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

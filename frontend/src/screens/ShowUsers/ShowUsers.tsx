@@ -1,8 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Button, Text, View, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import {useState, useEffect} from 'react';
+import {
+  Button,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import TabNavigator from '../../components/TabNavigator';
-import { Stack } from 'native-base';
+import {Box, Stack} from 'native-base';
 
 const styles = StyleSheet.create({
   items: {
@@ -13,9 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-export default function ShowUsers({ navigation }: any): JSX.Element {
+export default function ShowUsers({navigation}: any): JSX.Element {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [users, setUsers] = useState<any>([]);
@@ -32,18 +37,25 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
   return (
     <SafeAreaView>
       <ScrollView>
-      <Stack space={6} w="100%" alignItems="center" marginTop={30}>
-        <View>
-          {users && users.map((user : any) => (
-            <View style={styles.items} key={user.id}>
-              <Text>Email: {user.email}</Text>
-              <Text>Nome: {user.username}</Text>
-              <Text>Nivel de acesso: {user.accessLevel}</Text>
-              <Button title="Editar" onPress={() => navigation.navigate('EditUser', {id : user.id})} />
-            </View>
-          ))}
-        
-        </View>
+        <Stack space={6} w="100%" alignItems="center" marginTop={30}>
+          <View>
+            {users &&
+              users.map((user: any) => (
+                <View style={styles.items} key={user.id}>
+                  <Text>Email: {user.email}</Text>
+                  <Text>Nome: {user.username}</Text>
+                  <Text>Nivel de acesso: {user.accessLevel}</Text>
+                  <Box marginTop={6}>
+                    <Button
+                      title="Editar"
+                      onPress={() =>
+                        navigation.navigate('EditUser', {id: user.id})
+                      }
+                    />
+                  </Box>
+                </View>
+              ))}
+          </View>
         </Stack>
       </ScrollView>
     </SafeAreaView>

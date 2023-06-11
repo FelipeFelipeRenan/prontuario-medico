@@ -46,7 +46,7 @@ export default function EditConsulta({route, navigation}: any): JSX.Element {
 
       if (res) {
         console.log('Consulta editada com sucesso');
-        navigation.navigate('ShowConsultas')
+        navigation.navigate('Mostrar Consultas')
       }
     } catch (error) {
       console.log(error);

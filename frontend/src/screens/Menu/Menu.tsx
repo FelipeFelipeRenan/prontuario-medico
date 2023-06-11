@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Button, TextArea} from 'native-base';
-import TabNavigator from '../../components/TabNavigator';
+import {Button} from 'native-base';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Neumorphism from 'react-native-neumorphism';
 
 const styles = StyleSheet.create({
   title: {
@@ -65,25 +63,25 @@ export default function Menu({navigation}: any): JSX.Element {
       {user && user.accessLevel === 0 && (
         <View style={styles.container}>
           <Button
-            onPress={() => navigation.navigate('CreateMedico')}
+            onPress={() => navigation.navigate('Cadastrar Médico')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}> Cadastrar médico </Text>
           </Button>
           <Button
-            onPress={() => navigation.navigate('CreateEnfermeira')}
+            onPress={() => navigation.navigate('Cadastrar Enfermeira')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}>Cadastrar enfermeira(o)</Text>
           </Button>
           <Button
-            onPress={() => navigation.navigate('CreatePaciente')}
+            onPress={() => navigation.navigate('Cadastrar Paciente')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}>Cadastrar paciente</Text>
           </Button>
           <Button
-            onPress={() => navigation.navigate('ShowUsers')}
+            onPress={() => navigation.navigate('Mostrar Users')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}>Ver usuários do sistema</Text>
@@ -98,14 +96,14 @@ export default function Menu({navigation}: any): JSX.Element {
       {user && (user.accessLevel === 1 || user.accessLevel === 2) && (
         <View style={styles.container}>
           <Button
-            onPress={() => navigation.navigate('CreateConsulta')}
+            onPress={() => navigation.navigate('Cadastrar Consulta')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}>Cadastrar consulta</Text>
           </Button>
 
           <Button
-            onPress={() => navigation.navigate('ShowConsultas')}
+            onPress={() => navigation.navigate('Mostrar Consultas')}
             size={120}
             borderRadius={4}>
             <Text style={styles.cardText}>Ver consultas</Text>
@@ -123,7 +121,7 @@ export default function Menu({navigation}: any): JSX.Element {
           <Button
             size={120}
             borderRadius={4}
-            onPress={() => navigation.navigate('ShowProntuario')}>
+            onPress={() => navigation.navigate('Mostrar Prontuario')}>
             <Text style={styles.cardText}>Consultar prontuário</Text>
           </Button>
 

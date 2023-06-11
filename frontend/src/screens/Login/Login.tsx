@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Button,
-  Icon,
   Input,
   Pressable,
   Stack,
