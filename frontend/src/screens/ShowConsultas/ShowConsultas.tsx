@@ -7,12 +7,24 @@ import {
   Switch,
   SafeAreaView,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import strapi from '../../utils/strapi/strapi';
 import axioS from '../../utils/axios/axios';
 import TabNavigator from '../../components/TabNavigator';
-import {Stack} from 'native-base';
+import {Box, Stack} from 'native-base';
+
+const styles = StyleSheet.create({
+  items: {
+    backgroundColor: "white",
+    padding:10 ,
+    marginTop: 10,
+  },
+  button:{
+    marginTop: 20,
+  }
+});
 
 export default function ShowConsultas({navigation}: any): JSX.Element {
   const [user, setUser] = useState<any>(null);
@@ -127,21 +139,23 @@ export default function ShowConsultas({navigation}: any): JSX.Element {
           <View>
             {consultas &&
               consultas.map((consult: any) => (
-                <View>
-                  <Text>{consult.username}</Text>
-                  <Text>{consult.anamnesis}</Text>
-                  <Text>{consult.comment}</Text>
-                  <Text>{consult.createdAt}</Text>
+                <View key={consult.id} style={styles.items}>
+                  <Text>Nome: {consult.username}</Text>
+                  <Text>Anamnese: {consult.anamnesis}</Text>
+                  <Text>Comentário: {consult.comment}</Text>
+                  <Text>Data de criação: {consult.createdAt}</Text>
+                  <Box marginTop={5}>
                   <Button
+                    
                     title="Editar consulta"
                     onPress={() =>
                       navigation.navigate('EditConsulta', {id: consult.id})
                     }
                   />
+                  </Box>
                 </View>
               ))}
           </View>
-          <TabNavigator />
         </Stack>
       </ScrollView>
     </SafeAreaView>

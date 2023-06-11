@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: 100,
+    marginLeft: 10,
+    MarginRight: 10,
   },
 
   applogo: {
@@ -22,7 +24,11 @@ const styles = StyleSheet.create({
   appName: {
     alignSelf: 'center',
     fontFamily: 'roboto',
-    fontSize: 30,
+    fontSize: 25,
+    marginLeft: 10,
+    marginRight:10,
+    marginTop:5,
+    textAlign: "center"
   },
 
   footer: {
@@ -34,13 +40,13 @@ export default function Home({navigation}: any): JSX.Element {
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
-        <Box>
+        <Box alignSelf="center">
           {/* <Image source={{
       uri: "https://wallpaperaccess.com/full/317501.jpg"
     }} alt="Alternate Text" size="xl" /> */}
     <Image source={logo} />
         </Box>
-        <Text style={styles.appName}>CCCP</Text>
+        <Text style={styles.appName}>Sistema de Gerenciamento Médico</Text>
       </View>
       <View>
         <Box>

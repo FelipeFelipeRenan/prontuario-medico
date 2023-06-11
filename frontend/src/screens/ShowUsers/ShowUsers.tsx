@@ -5,10 +5,14 @@ import TabNavigator from '../../components/TabNavigator';
 import { Stack } from 'native-base';
 
 const styles = StyleSheet.create({
-  items:{
-    marginTop: 10,
-  }
-})
+  items: {
+    backgroundColor: 'white',
+    padding: 20,
+
+    marginBottom: 10,
+  },
+});
+
 
 
 export default function ShowUsers({ navigation }: any): JSX.Element {
@@ -31,16 +35,15 @@ export default function ShowUsers({ navigation }: any): JSX.Element {
       <Stack space={6} w="100%" alignItems="center" marginTop={30}>
         <View>
           {users && users.map((user : any) => (
-            <View style={styles.items}>
-              <Text>{user.email}</Text>
-              <Text>{user.username}</Text>
-              <Text>{user.accessLevel}</Text>
+            <View style={styles.items} key={user.id}>
+              <Text>Email: {user.email}</Text>
+              <Text>Nome: {user.username}</Text>
+              <Text>Nivel de acesso: {user.accessLevel}</Text>
               <Button title="Editar" onPress={() => navigation.navigate('EditUser', {id : user.id})} />
             </View>
           ))}
         
         </View>
-        <TabNavigator/>
         </Stack>
       </ScrollView>
     </SafeAreaView>
