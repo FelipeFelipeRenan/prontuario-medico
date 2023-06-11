@@ -29,14 +29,21 @@ function App(): JSX.Element {
             component={Home}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="Menu"
             component={Menu}
             options={{headerShown: false}}
           />
           <Stack.Screen name="Cadastrar Médico" component={CreateMedico} />
-          <Stack.Screen name="Cadastrar Enfermeira" component={CreateEnfermeira} />
+          <Stack.Screen
+            name="Cadastrar Enfermeira"
+            component={CreateEnfermeira}
+          />
           <Stack.Screen name="Cadastrar Paciente" component={CreatePaciente} />
           <Stack.Screen name="Mostrar Usuários" component={ShowUsers} />
           <Stack.Screen name="Editar Usuário" component={EditUser} />

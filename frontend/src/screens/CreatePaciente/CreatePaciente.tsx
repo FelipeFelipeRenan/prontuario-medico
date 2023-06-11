@@ -136,7 +136,6 @@ export default function CreatePaciente({navigation}: any): JSX.Element {
         }}
       />
       <Button title="Cadastrar" onPress={() => handleButton()} />
-      <TabNavigator />
       </Stack>
     </View>
   );

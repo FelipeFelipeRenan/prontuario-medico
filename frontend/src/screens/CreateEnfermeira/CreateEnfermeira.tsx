@@ -149,7 +149,6 @@ export default function CreateEnfermeira({navigation}: any): JSX.Element {
           fontSize={15}
         />
         <Button title="Cadastrar" onPress={() => handleButton()} />
-        <TabNavigator />
       </Stack>
     </View>
   );

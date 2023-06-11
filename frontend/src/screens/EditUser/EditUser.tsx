@@ -129,7 +129,6 @@ export default function EditUser({route, navigation}: any): JSX.Element {
 
         <Button title="Editar" onPress={() => handleButton()} />
         </Stack>
-      <TabNavigator />
     </View>
   );
 }

@@ -88,7 +88,6 @@ export default function EditConsulta({route, navigation}: any): JSX.Element {
 
         <Button title="Editar" onPress={() => handleButton()} />
       </Stack>
-      <TabNavigator />
     </View>
   );
 }

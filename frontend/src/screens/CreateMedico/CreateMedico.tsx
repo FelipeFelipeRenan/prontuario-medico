@@ -150,7 +150,6 @@ export default function CreateMedico({navigation}: any): JSX.Element {
           fontSize={18}
         />
         <Button title="Cadastrar" onPress={() => handleButton()} />
-        <TabNavigator />
       </Stack>
     </View>
   );
