@@ -49,7 +49,7 @@ export default function ShowUsers({navigation}: any): JSX.Element {
                     <Button
                       title="Editar"
                       onPress={() =>
-                        navigation.navigate('EditUser', {id: user.id})
+                        navigation.navigate('Editar Usuário', {id: user.id})
                       }
                     />
                   </Box>

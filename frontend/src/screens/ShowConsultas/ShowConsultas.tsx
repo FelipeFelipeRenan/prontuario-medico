@@ -149,7 +149,7 @@ export default function ShowConsultas({navigation}: any): JSX.Element {
                     
                     title="Editar consulta"
                     onPress={() =>
-                      navigation.navigate('EditConsulta', {id: consult.id})
+                      navigation.navigate('Editar Consulta', {id: consult.id})
                     }
                   />
                   </Box>
