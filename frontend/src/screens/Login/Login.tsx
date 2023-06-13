@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Heading, useToast, CircleIcon} from 'native-base'
+
 import {
   Button,
   Input,
@@ -29,6 +31,8 @@ export default function Login({navigation}: any): JSX.Element {
 
   const [clicked, setClicked] = useState(false);
 
+  const toast = useToast();
+
   const handleButton = async () => {
     setClicked(true);
     try {
@@ -49,8 +53,11 @@ export default function Login({navigation}: any): JSX.Element {
         // console.log(await AsyncStorage.getItem("user"))
         navigation.navigate('Menu');
       }
+      setClicked(false);
     } catch (error) {
       console.log(error);
+      toast.show({description : error.error.message})
+      setClicked(false);
     }
   };
 
@@ -58,6 +65,7 @@ export default function Login({navigation}: any): JSX.Element {
     <View>
       <View style={styles.container}>
         <Stack space={4} w="100%" alignItems="center">
+          <Heading>Login</Heading>
           <Input
             w={{
               base: '75%',
@@ -78,7 +86,7 @@ export default function Login({navigation}: any): JSX.Element {
             type={show ? 'text' : 'password'}
             InputRightElement={
               <Pressable onPress={() => setShow(!show)}>
-                <Text>revelar</Text>
+                <CircleIcon/>
               </Pressable>
             }
             placeholder="Password"

@@ -97,7 +97,7 @@ export default function ShowProntuario({navigation}: any): JSX.Element {
           <View>
             {consultas &&
               consultas.map((consult: any) => (
-                <View style={styles.items}>
+                <View key={consult.id} style={styles.items}>
                   <Text style={styles.items}>
                     {consult.idMedico !== -1 && (
                       <Text>

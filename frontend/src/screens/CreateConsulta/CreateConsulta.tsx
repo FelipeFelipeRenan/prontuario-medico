@@ -120,7 +120,7 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
 
       <Stack space={4} w="100%" alignItems="center" marginTop={30}>
         {/* Exibir pacientes */}
-        {usersPacientes &&
+        {/* {usersPacientes &&
           usersPacientes.map(
             (pacient: {
               username:
@@ -139,7 +139,7 @@ export default function CreateConsulta({navigation}: any): JSX.Element {
                 </Text>
               </View>
             ),
-          )}
+          )} */}
         <Input
           w={{
             base: '75%',

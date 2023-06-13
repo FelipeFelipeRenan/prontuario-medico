@@ -34,34 +34,34 @@ export default function ShowConsultas({navigation}: any): JSX.Element {
   useEffect(() => {
     const getUser = async () => {
       const res = await AsyncStorage.getItem('user');
-
-      if (res) {
-        setUser(JSON.parse(res));
-        loadConsulta();
+      const userData = JSON.parse(res);
+      if (userData) {
+        setUser(userData);
+        loadConsulta(userData);
       }
     };
     getUser();
   }, []);
 
   //load consultas
-  async function loadConsulta() {
-    //console.log(user)
+  async function loadConsulta(userData) {
+    // console.log(userData)
 
     try {
       let options;
-      if (user && user.accessLevel === 1) {
+      if (userData && userData.accessLevel === 1) {
         options = {
           filters: {
             idMedico: {
-              $eq: user.id,
+              $eq: userData.id,
             },
           },
         };
-      } else if (user && user.accessLevel === 2) {
+      } else if (userData && userData.accessLevel === 2) {
         options = {
           filters: {
             idEnfermeira: {
-              $eq: user.id,
+              $eq: userData.id,
             },
           },
         };
@@ -109,17 +109,17 @@ export default function ShowConsultas({navigation}: any): JSX.Element {
               createdAt: consult.attributes.createdAt,
             };
 
-            console.log(consulte);
-            if (user && user.accessLevel === 2 && consulte.idMedico === -1) {
-              return;
-            }
-            if (
-              user &&
-              user.accessLevel === 1 &&
-              consulte.idEnfermeira === -1
-            ) {
-              return;
-            }
+            // console.log(consulte);
+            // if (user && user.accessLevel === 2 && consulte.idMedico === -1) {
+            //   return;
+            // }
+            // if (
+            //   user &&
+            //   user.accessLevel === 1 &&
+            //   consulte.idEnfermeira === -1
+            // ) {
+            //   return;
+            // }
 
             setConsultas((prevConsultas: any) => [...prevConsultas, consulte]);
           },

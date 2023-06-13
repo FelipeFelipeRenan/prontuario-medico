@@ -1,7 +1,7 @@
-import {Box} from 'native-base';
+import {Box, ArrowForwardIcon, Button, Link} from 'native-base';
 import React from 'react';
-import {Button, StyleSheet, Text, View, Image} from 'react-native';
-import logo from '../../props/download.jpeg'
+import {StyleSheet, Text, View, Image} from 'react-native';
+import logo from '../../props/appicon2.png'
 
 const styles = StyleSheet.create({
   container: {
@@ -46,18 +46,17 @@ export default function Home({navigation}: any): JSX.Element {
     }} alt="Alternate Text" size="xl" /> */}
     <Image source={logo} />
         </Box>
-        <Text style={styles.appName}>Sistema de Gerenciamento Médico</Text>
+        <Text style={styles.appName}>Pronele</Text>
       </View>
       <View>
         <Box>
-          <Button
-            title="Acessar o sistema"
-            onPress={() => navigation.navigate('Login')}
-          />
+          <Button onPress={() => navigation.navigate('Login')} >
+            <ArrowForwardIcon size="5" color="white"/>
+          </Button>
         </Box>
       </View>
       <View style={styles.footer}>
-        <Text>Copyright 2023 - equipe</Text>
+        <Text>Copyright 2023 - <Link href="https://github.com/FelipeFelipeRenan/prontuario-medico">WFLA</Link></Text>
       </View>
     </View>
   );
