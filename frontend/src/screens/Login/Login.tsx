@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import strapi from '../../utils/strapi/strapi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Heading, useToast, CircleIcon} from 'native-base'
+import {Heading, useToast, CircleIcon, SunIcon} from 'native-base'
 
 import {
   Button,
@@ -86,7 +86,8 @@ export default function Login({navigation}: any): JSX.Element {
             type={show ? 'text' : 'password'}
             InputRightElement={
               <Pressable onPress={() => setShow(!show)}>
-                <CircleIcon/>
+                {show && <CircleIcon/>}
+                {!show && <SunIcon/>}
               </Pressable>
             }
             placeholder="Password"
