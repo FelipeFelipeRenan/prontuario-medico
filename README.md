@@ -1,7 +1,12 @@
 # ProNele
 Prontuário Eletrônico
 
-<img src="images/pronele.png" alt="Tela inicial do aplicativo" width="50%">
+![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Strapi](https://img.shields.io/badge/strapi-%232E7EEA.svg?style=for-the-badge&logo=strapi&logoColor=white)
+
+
+
+<img src="images/pronele.png" alt="Tela inicial do aplicativo" width="35%">
 
 > Aplicativo para gerencimaneto de prontuários eletrônicos. Com ele se o médico ou enfermeira pode cadastrar um prontuário para determinado paciente e ele pode consulta-ló.
 
