@@ -8,7 +8,7 @@ Prontuário Eletrônico
 
 <img src="images/pronele.png" alt="Tela inicial do aplicativo" width="35%">
 
-> Aplicativo para gerencimaneto de prontuários eletrônicos. Com ele se o médico ou enfermeira pode cadastrar um prontuário para determinado paciente e ele pode consulta-ló.
+> Aplicativo para gerenciamento de prontuários eletrônicos. Com ele o médico ou a enfermeira podem cadastrar um prontuário para determinado paciente e ele pode consulta-ló.
 
 ## 💻 Pré-requisitos
 
